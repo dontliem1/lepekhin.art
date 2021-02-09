@@ -9,6 +9,7 @@ media_folder: "src/static/img"
 public_folder: "/static/img"
 logo_url: "https://lepekhinart.netlify.app/static/img/lepekhin.svg"
 locale: "ru"
+site_url: https://lepekhinart.netlify.app
 
 # Please run "npx netlify-cms-proxy-server" for local backend
 local_backend: true
@@ -62,7 +63,7 @@ collections:
               - { label: "Заголовок", name: title, widget: string }
               - { label: URL, name: url, widget: string }
               - { label: "Описание", name: desc, widget: string }
-      - label: "Футер"
+      - label: "Контактная информация"
         name: "settings"
         file: "src/_data/settings.yaml"
         fields:
@@ -71,3 +72,5 @@ collections:
           - { label: "Ссылка на Телеграм", name: tg, widget: string }
           - { label: "Ссылка на ВКонтакте", name: vk, widget: string }
           - { label: "Ссылка на политику конфиденциальности", name: policy, widget: string }
+          - { label: "Электронная почта", name: email, widget: string }
+          - { label: "Телефон", name: tel, widget: string }

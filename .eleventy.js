@@ -20,6 +20,9 @@ module.exports = function (eleventyConfig) {
   // A shortcode for current year
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
+  // A shortcode for telephone link
+  eleventyConfig.addShortcode("tel", (tel) => {return tel.replace([' ', '-', ' '], '')});
+
   // Syntax Highlighting for Code blocks
   eleventyConfig.addPlugin(syntaxHighlight);
 

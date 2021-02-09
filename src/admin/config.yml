@@ -7,62 +7,65 @@ backend:
   # repo: surjithctly/neat-starter
 media_folder: "src/static/img"
 public_folder: "/static/img"
+logo_url: "https://lepekhinart.netlify.app/static/img/lepekhin.svg"
+locale: "ru"
 
 # Please run "npx netlify-cms-proxy-server" for local backend
 local_backend: true
 # publish_mode: editorial_workflow
 collections:
-  - label: "Blog"
+  - label: "Блог"
+    description: "Студийный блог"
     name: "blog"
     folder: "src/posts"
     create: true
     editor:
       preview: false
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Описание", name: "description", widget: "string" }
+      - { label: "Автор", name: "author", widget: "string" }
+      - { label: "Время публикации", name: "date", widget: "datetime" }
+      - { label: "Содержимое", name: "body", widget: "markdown" }
       - widget: select
-        label: "tags"
+        label: "Теги"
         name: "tags"
         multiple: true
         create: true
         options: ["Tags", "created", "from", "config.yml"]
-  - label: "Settings"
+  - label: "Настройка"
     name: "settings"
     editor:
       preview: false
     files:
-      - label: "Navigation"
+      - label: "Навигация"
         name: "items"
         file: "src/_data/navigation.yaml"
         fields:
-          - label: Nav Items
+          - label: "Ссылки"
             name: items
             widget: list
             allow_add: false
             collapsed: false
             fields:
-              - { label: Title, name: text, widget: string }
+              - { label: "Подпись", name: text, widget: string }
               - { label: URL, name: url, widget: string }
-      - label: "Quick Links"
+      - label: "Список проектов"
         name: "links"
         file: "src/_data/quicklinks.yaml"
         fields:
-          - label: Nav Items
+          - label: "Карточки проектов"
             name: links
             widget: list
             collapsed: false
             fields:
-              - { label: Title, name: title, widget: string }
+              - { label: "Заголовок", name: title, widget: string }
               - { label: URL, name: url, widget: string }
-              - { label: Description, name: desc, widget: string }
-      - label: "Meta Settings"
+              - { label: "Описание", name: desc, widget: string }
+      - label: "SEO"
         name: "settings"
         file: "src/_data/settings.yaml"
         fields:
-          - { label: Name, name: name, widget: string }
-          - { label: Author, name: author, widget: string }
+          - { label: "Заголовок", name: name, widget: string }
+          - { label: "Автор", name: author, widget: string }
           - { label: URL, name: url, widget: string }

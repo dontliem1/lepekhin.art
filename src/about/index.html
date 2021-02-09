@@ -11,9 +11,9 @@ title: О Студии Евгения Лепёхина
         <i class="section-who__lead">Мы продаём не дизайн, а решения для бизнеса</i>
         <p class="section__text">Мы видим перспективы для дизайна в России и огромное количество ниш, где до сих пор никто не пытался сделать душевно и красиво. В студии мы хотим видеть людей, которые разделяют наши ценности и верят, что дизайн — это не всё, но дизайн — это начало.</p>
     </section>
-    {% if team %}
+    {% if team.teammates %}
     <ul class="team">
-        {% for person in team %}
+        {% for person in team.teammates %}
             <li class="team__item"><div><img class="team__photo" src="{{person.img}}" width="240" height="322" alt="{{person.title}}"></div><p class="team__title">{{person.title}}</p></li>
         {% endfor %}
     </ul>

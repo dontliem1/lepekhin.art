@@ -65,11 +65,15 @@ collections:
               - { label: "Описание", name: desc, widget: string }
       - label: "Команда"
         name: team
-        widget: list
         file: "src/_data/team.yaml"
         fields:
-            - { label: "Фото", name: img, widget: image, allow_multiple: false }
-            - { label: "Подпись", name: title, widget: string }
+          - label: "Сотрудники"
+            name: teammates
+            widget: list
+            collapsed: false
+            fields:
+              - { label: "Фото", name: img, widget: image, allow_multiple: false }
+              - { label: "Подпись", name: title, widget: string }
       - label: "Контактная информация"
         name: "settings"
         file: "src/_data/settings.yaml"

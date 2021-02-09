@@ -17,6 +17,9 @@ module.exports = function (eleventyConfig) {
     );
   });
 
+  // A shortcode for current year
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
   // Syntax Highlighting for Code blocks
   eleventyConfig.addPlugin(syntaxHighlight);
 

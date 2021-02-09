@@ -1,9 +1,10 @@
-<footer class="{{ 'fixed' if path == 'home' }} bottom-0 text-center w-full py-4">
-    <small class="text-gray-500">Copyright ©
-        {{settings.name}}
-        2020. Made with ❤ by
-        <a href="{{settings.url}}" target="_blank" class="underline">{{settings.author}}</a>
-        •
-        <a href="https://github.com/surjithctly/neat-starter" class="underline" target="_blank" rel="noopener">View on Github</a>
-    </small>
+<footer class="page-footer container">
+    <span class="page-footer__margin"></span>
+    <a class="page-footer__link page-footer__link--comma" href="{{settings.ig}}" target="_blank" rel="noopener noreferrer">Инстаграм</a>
+    <a class="page-footer__link page-footer__link--comma" href="{{settings.tg}}" target="_blank" rel="noopener noreferrer">Телеграм</a>
+    <a class="page-footer__link" href="{{settings.vk}}" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+    <span class="page-footer__margin"></span>
+    <a class="page-footer__link" href="{{settings.policy}}" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+    <span class="page-footer__margin"></span>
+    <span class="footer-copyright">© 2017—{% year %}, {{settings.name}}</span>
 </footer>

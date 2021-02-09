@@ -62,10 +62,12 @@ collections:
               - { label: "Заголовок", name: title, widget: string }
               - { label: URL, name: url, widget: string }
               - { label: "Описание", name: desc, widget: string }
-      - label: "SEO"
+      - label: "Футер"
         name: "settings"
         file: "src/_data/settings.yaml"
         fields:
-          - { label: "Заголовок", name: name, widget: string }
-          - { label: "Автор", name: author, widget: string }
-          - { label: URL, name: url, widget: string }
+          - { label: "Название организации", name: name, widget: string }
+          - { label: "Ссылка на Инстаграм", name: ig, widget: string }
+          - { label: "Ссылка на Телеграм", name: tg, widget: string }
+          - { label: "Ссылка на ВКонтакте", name: vk, widget: string }
+          - { label: "Ссылка на политику конфиденциальности", name: policy, widget: string }

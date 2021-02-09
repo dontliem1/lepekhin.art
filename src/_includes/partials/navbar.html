@@ -6,7 +6,11 @@
                 <a class="page-header__link" {{ 'aria-current="page"' if item.url in page.url else 'href="'+item.url+'"' }}>{{ item.text }}</a>
             </li>
         {% endfor %}
+        {% if settings.email %}
         <li class="page-header__item page-header__item--desktop page-header__item--margin"><a class="page-header__link" href="mailto:{{ settings.email }}">{{ settings.email }}</a></li>
+        {% endif %}
+        {% if settings.tel %}
         <li class="page-header__item page-header__item--desktop"><a class="page-header__link" href="tel:{% tel settings.tel %}">{{ settings.tel }}</a></li>
+        {% endif %}
     </ul>
 </header>

@@ -1,10 +1,9 @@
----
 items:
-  - text: Menu One
-    url: "#"
-  - text: Menu Two
-    url: "#"
-  - text: Menu Three
-    url: "#"
-  - text: Blog
-    url: "/blog"
+  - text: Портфолио
+    url: /
+  - text: Студия
+    url: /about
+  - text: Цены
+    url: /price
+  - text: Блог
+    url: /blog

@@ -135,7 +135,6 @@ title: Цены Студии Евгения Лепёхина
             <p><input type="text" name="organization" id="organization" class="section-order__field" autocomplete="organization" placeholder="Название компании"><label for="organization" class="section-order__label">Название компании</label></p>
             <p><input type="email" name="email" id="email" class="section-order__field" placeholder="Электронная почта" required><label for="email" class="section-order__label">Электронная почта</label></p>
             <p><textarea class="section-order__field" name="about" id="about" rows="5" placeholder="Несколько слов о проекте"></textarea><label for="about" class="section-order__label">Несколько слов о проекте</label></p>
-            <input type="hidden" name="check" value="honey pot" required>
             <button class="section-order__btn">Заказать дизайн</button>
         </form>
         <div class="section-order__success" hidden>
@@ -147,8 +146,8 @@ title: Цены Студии Евгения Лепёхина
     </section>
 </main>
 <script>
-    let sticker = document.querySelector('.price-covid-sticker span'),
-        recommended = document.querySelector('.price-recommended');
+    let sticker = document.querySelector('.section-covid__bg'),
+        recommended = document.querySelector('.price-list__item--recommended');
     function throttle(fn, wait) {
         let time = Date.now();
         return function() {
@@ -162,7 +161,7 @@ title: Цены Студии Евгения Лепёхина
         sticker.style.transform = 'rotate('+window.pageYOffset/10+'deg)';
     }
     function setRecommendedSeen(){
-        recommended.classList.add('price-recommended_seen');
+        recommended.classList.add('price-list__item--seen');
     }
     function scrollCallback() {
         if (window.matchMedia('(min-width: 48em)').matches) {
@@ -173,7 +172,7 @@ title: Цены Студии Евгения Лепёхина
         }
     }
     window.addEventListener('scroll', throttle(scrollCallback, 10));
-    const telInputs = tel = document.getElementById('tel');
+    const tel = document.getElementById('tel');
     tel.addEventListener('input', function(e) {
         let cleaned = e.target.value.replace(/\D/g, '');
         if (['7','8'].indexOf(cleaned[0]) >= 0) {

@@ -1,6 +1,9 @@
 <header class="page-header container">
-    <a class="page-header__home"{% if path == 'home' %} href="{{site_url}}"{% endif %}><img class="page-header__logo" src="{{logo_url}}" width="90" height="35" alt="Лепёхин"></a>
+    <a class="page-header__home"{% if path == 'home' %} href="{{ '/' | url }}"{% endif %}><img class="page-header__logo" src="{{ '/static/img/lepekhin.svg' | url }}" width="90" height="35" alt="Лепёхин"></a>
     <ul class="page-header__list">
+        <li class="page-header__item">
+            <a class="page-header__link"{% if path == 'home' %} aria-current="page"{% else %} href="{{ '/' | url }}"{% endif %}>Портфолио</a>
+        </li>
         {% for item in navigation.items %}
             <li class="page-header__item">
                 <a class="page-header__link"{% if item.url in page.url %} aria-current="page"{% else %} href="{{item.url}}"{% endif %}>{{item.text}}</a>

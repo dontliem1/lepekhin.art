@@ -1,5 +1,5 @@
 <header class="page-header container">
-    <a class="page-header__home"{% if path == 'home' %} href="{{site_url}}"{% endif %}><img class="page-header__logo" src="static/img/lepekhin.svg" width="90" height="35" alt="Лепёхин"></a>
+    <a class="page-header__home"{% if path == 'home' %} href="{{site_url}}"{% endif %}><img class="page-header__logo" src="{{logo_url}}" width="90" height="35" alt="Лепёхин"></a>
     <ul class="page-header__list">
         {% for item in navigation.items %}
             <li class="page-header__item">

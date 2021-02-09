@@ -1,0 +1,54 @@
+---
+layout: default
+title: О Студии Евгения Лепёхина
+---
+
+<main class="container">
+    <section class="section section--grid section-who">
+        <h1 class="section__heading">Кто такие</h1>
+        <p class="section__text">Мы команда молодых дизайнеров, редакторов, программистов и менеджеров, которые умеют работать, ценят свой труд, уважают себя и не хотят делать ширпотреб.</p>
+        <p class="section__text">Мы дизайним классные продукты с нуля и помогаем бизнесу решать конкретные задачи: развиваться, выходит на новые рынки и зарабатывать больше. Нам интересны комплексные проекты, когда клиент приходит за буклетом, а уходит с новым сайтом и логотипом.</p>
+        <i class="section-who__lead">Мы продаём не дизайн, а решения для бизнеса</i>
+        <p class="section__text">Мы видим перспективы для дизайна в России и огромное количество ниш, где до сих пор никто не пытался сделать душевно и красиво. В студии мы хотим видеть людей, которые разделяют наши ценности и верят, что дизайн — это не всё, но дизайн — это начало.</p>
+    </section>
+    {% if team %}
+    <ul class="team">
+        {% for person in team %}
+            <li class="team__item"><div><img class="team__photo" src="{{person.img}}" width="240" height="322" alt="{{person.title}}"></div><p class="team__title">{{person.title}}</p></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <section class="section section--grid section-principles">
+        <h2 class="section__heading">Подход к работе и принципы</h2>
+        <p class="section__text">Наш подход можно описать двумя словами: без хуйни. Нам важно наслаждаться творческим процессом и результатом. Поэтому мы предлагаем только те решения, которые помогут заказчику укрепить позиции на рынке.</p>
+        <p class="section__text">Нам важно отвечать за продукт от брифа до запуска. Только контролируя весь процесс, мы можем гарантировать качество и хороший результат. Между проектами закладываем паузы, чтобы подвести итоги и обсудить результат.</p>
+        <div class="section-principles__lines">
+            <span class="section-principles__line">делаем</span>
+            <span class="section-principles__line">классные</span>
+            <span class="section-principles__line">проекты</span>
+            <span class="section-principles__line">ещё лучше</span>
+            <span class="section-principles__line">и сильнее</span>
+        </div>
+        <p class="section__text">У нас своё видение и понимание хорошего дизайна. Не стесняемся предложить более эффективное решение, даже если оно отличается от запроса клиента. Мы трепетно относимся к типографике и вёрстке, кайфуем от процесса. Уделяем внимание деталям и делаем каждый проект с душой, как для себя.</p>
+        <p class="section__text">Чтобы вы могли ознакомиться с нашими основными принципами, мы собрали их в простой и короткий манифест.</p>
+        <div class="principles-manifest">
+            <h3 class="section__heading">Манифест</h3>
+            <ol class="principles-manifest__list">
+                <li class="principles-manifest__item">Дизайн это не рисование картинок. Задача дизайнера — разобраться в бизнесе клиента и предложить решение, которое будет наиболее удобным, красивым и эффективным.</li>
+                <li class="principles-manifest__item">Относимся к продукту клиента как к своему: прогружаемся в специфику и отсеиваем слабые решения.</li>
+                <li class="principles-manifest__item">Работаем на обоюдном доверии. Мы доверяем вашему опыту в бизнесе, а вы доверяете нашему — в дизайне. Без доверия ничего не получится.</li>
+                <li class="principles-manifest__item">Клиент и заказчик равны. Не работаем в проектах в качестве «рук». У нас есть своё видение дизайна, и клиенты приходят за ним.</li>
+                <li class="principles-manifest__item">Любой труд должен быть оплачен. Не работаем по бартеру или бесплатно.</li>
+                <li class="principles-manifest__item">Мы делаем продукт целиком, а не какую-то его часть. Поэтому цены фиксированные, скидок нет.</li>
+                <li class="principles-manifest__item">Работаем по 100% предоплате. Утром деньги, вечером стулья. Это как в Макдональдсе: нельзя съесть бургер, а потом заплатить за него.</li>
+            </ol>
+        </div>
+    </section>
+    <section class="section section-contact">
+        <h2 class="section__heading">Связаться с нами</h2>
+        <p class="section-contact__text">Мы находимся в Тюмени, но работаем с клиентами по всему миру. Созваниваемся с клиентами по Скайпу, Гугл Миту, Телеграму. Если нужна личная встреча в офисе, лучше договориться заранее.</p>
+        <p><a href="mailto:{{settings.email}}">{{settings.email}}</a> <span class="contact-gray">— {{settings.email_label}}</span></p>
+        <p><a href="tel:{{ settings.tel | replace(' ', '') | replace('-', '') }}">{{settings.tel}}</a> <span class="contact-gray">— {{settings.tel_label}}</span></p>
+        <p><a href="{{settings.address_url}}" target="_blank">{{settings.address}}</a> <span class="contact-gray">— {{settings.address_label}}</span></p>
+    </section>
+</main>

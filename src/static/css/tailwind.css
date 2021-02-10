@@ -131,6 +131,9 @@ img {
     display: inline-flex;
     margin-top: .4em;
   }
+  .page-header__logo {
+    width: 4.6em;
+  }
 }
 @media (min-width: 82.5em) {
   .page-header__list {
@@ -139,7 +142,7 @@ img {
   .page-header__item--margin {
     margin-left: auto;
   }
-  .header-mobile-hidden {
+  .page-header__item--desktop {
     display: inline-block;
   }
 }
@@ -225,6 +228,13 @@ img {
   max-width: 82%;
   line-height: 150%;
 }
+.section__heading {
+  margin-top: 0;
+  font-size: 125%;
+  line-height: 1.4;
+  font-weight: normal;
+  margin-bottom: .55em;
+}
 @media (min-width: 48em) {
   .section--top {
     margin-top: 6.35em;
@@ -234,23 +244,29 @@ img {
     max-width: 82%;
     line-height: 150%;
   }
+  .section-heading {
+    font-size: 200%;
+    line-height: 1.37;
+  }
+}
+@media (min-width: 82.5em) {
+  .section__heading {
+    font-size: 240%;
+    line-height: 1.25;
+  }
 }
 .section-who {
   margin-bottom: 1.4em;
-}
-.section__heading {
-  margin-top: 0;
-  font-size: 125%;
-  line-height: 1.4;
-  font-weight: normal;
-  margin-bottom: .55em;
 }
 .section-who__lead {
     display: block;
     background-color: #FFF48D;
     text-align: center;
     padding: 2em 1.5em;
-    border-radius: 40% 60% 60% 40% / 40% 60% 60% 40%;
+    border-top-left-radius: 40% 60%;
+    border-top-right-radius: 60% 40%;
+    border-bottom-left-radius: 60% 40%;
+    border-bottom-right-radius: 40% 60%;
     line-height: 1.5;
     font-size: 125%;
     margin-left: -.75rem;
@@ -326,14 +342,6 @@ img {
     color: #999;
 }
 @media (min-width: 48em) {
-  .section-who {
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 80%;
-    margin-top: 6.2em;
-    align-items: baseline;
-    margin-bottom: -4.75em;
-  }
   .section-who__lead {
     font-size: 1.4em;
     width: 14.5em;
@@ -341,6 +349,14 @@ img {
     margin-left: .2em;
     margin-top: 1.25em;
     margin-bottom: 1.8em;
+  }
+  .team {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 80%;
+      margin-top: 6.2em;
+      align-items: baseline;
+      margin-bottom: -4.75em;
   }
   .team__item:nth-child(n) {
     flex-basis: 50%;
@@ -369,7 +385,7 @@ img {
     margin-top: 0;
     padding: 0;
   }
-  .principles-manifest__item {
+  .principles-manifest__list .principles-manifest__item {
     margin-bottom: 1em;
   }
   .section-contact__text {

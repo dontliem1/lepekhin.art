@@ -5,7 +5,7 @@ title: Цены Студии Евгения Лепёхина
 
 <main class="container">
     <section class="section section-covid section--top">
-        <h1 class="section__heading">Экспресс-решения для малого бизнеса на время карантина</h1>
+        <h1 class="section__heading section__heading--covid">Экспресс-решения для малого бизнеса на время карантина</h1>
         <p class="section-covid__text">Мы понимаем, что многие компании сейчас находятся в непонятной ситуации. Карантин и падение рубля сильно ударили по бизнесу. В такое время нужно идти на встречу друг другу, помогать и поддерживать.</p>
         <p class="section-covid__text">Смысла грустить и впадать в отчание нет — всё уже случилось. Поэтому мы предлагаем рассматривать эту ситуацию, как возможность для развития, изменений и экспериментов.</p>
         <p class="section-covid__text">Специально для малого бизнеса мы подготовили предложения с новыми ценами. В этих услугах мы отказались от глубокой аналитики и бесконечных согласований.</p>
@@ -13,7 +13,7 @@ title: Цены Студии Евгения Лепёхина
             <p class="section-covid__label section-covid__label--triangle">Время расти</p>
             <p class="section-covid__label section-covid__label--oval">Без согласований быстрее!</p>
             <p class="section-covid__label section-covid__label--hexagon">Дизайн имеет значение</p>
-            <p class="section-covid__label section-covid__label--sticker"><span class="section-covid__bg"></span><span>Дешевле уже некуда!</span></p>
+            <p class="section-covid__label section-covid__label--sticker"><span class="section-covid--sticker__bg"></span><span class="section-covid--sticker__label">Дешевле уже некуда!</span></p>
         </div>
         <div class="price-list">
             <div class="price-list__item price-list__item--logotype">
@@ -62,9 +62,9 @@ title: Цены Студии Евгения Лепёхина
     </section>
     <section class="section section-tariffs">
         <h2 class="section__heading">Тарифы для стартапов, взрослого бизнеса и постоянных клиентов</h2>
-        <p class="section__text">Мы работаем по фиксированным ценам. Любой заказчик может ознакомиться с тарифами на нашем сайте и принять решение. Это позволяет не тратить время на переговоры и торги, а сразу перейти к обсуждению задачи и поиску решения.</p>
+        <p class="section__text section__text--first">Мы работаем по фиксированным ценам. Любой заказчик может ознакомиться с тарифами на нашем сайте и принять решение. Это позволяет не тратить время на переговоры и торги, а сразу перейти к обсуждению задачи и поиску решения.</p>
         <p class="section__text">Чаще всего к нам приходят клиенты, у которых для запуска проекта либо ничего нет, либо всё давно устарело. Для них мы сделали специальные тарифы.</p>
-        <div class="price-list">
+        <div class="price-list price-list--tariffs">
             <div class="price-list__item price-list__item--recommended">
                 <h3 class="price-list__heading">Запуститься</h3>
                 <p class="price-list__lead">Для стартапов и малого бизнеса, у которых ничего нет для старта</p>
@@ -79,7 +79,7 @@ title: Цены Студии Евгения Лепёхина
             </div>
             <div>
                 <h3 class="price-list__heading">Обновиться</h3>
-                <p>Для взрослых компаний компаний с устаревшим дизайном</p>
+                <p class="price-list__lead">Для взрослых компаний компаний с устаревшим дизайном</p>
                 <ul class="price-list__features">
                     <li class="price-list__feature">Многостраничный сайт с понятной навигацией и удобной админкой</li>
                     <li class="price-list__feature">Логотип в формате .ai</li>
@@ -91,8 +91,8 @@ title: Цены Студии Евгения Лепёхина
             </div>
             <div>
                 <h3 class="price-list__heading">Расшириться</h3>
-                <p>Для постоянных клиентов студии, которые хотят развивать продукт.</p>
-                <p>Решим одну конкретную задачу. Например, нарисуем и сверстаем новый раздел сайт, добавим новую функцию в админку, подготовим айдентику для ещё трёх носителей.</p>
+                <p class="price-list__lead">Для постоянных клиентов студии, которые хотят развивать продукт.</p>
+                <p class="price-list__lead">Решим одну конкретную задачу. Например, нарисуем и сверстаем новый раздел сайт, добавим новую функцию в админку, подготовим айдентику для ещё трёх носителей.</p>
                 <ul class="price-list__features">
                     <li class="price-list__feature">Начинаем, когда полностью понимаем задачу</li>
                     <li class="price-list__feature">Маленькая команда из двух-трёх человек: дизайнер, верстальщик и арт-директор</li>
@@ -105,7 +105,7 @@ title: Цены Студии Евгения Лепёхина
     </section>
     <section class="section section-steps">
         <h2 class="section__heading">Что происходит после заявки</h2>
-        <p class="section__text">Все заявки на почту <a href="mailto:{{settings.email}}">{{settings.email}}</a> и звонки на номер <a href="tel:{{ settings.tel | replace(' ', '') | replace('-', '') }}">{{settings.tel}}</a> принимает Валерия, менеджер студии. Она ведёт проекты студии от заявки до запуска готового продукта.</p>
+        <p class="section__text">Все заявки на почту <a class="link-solid link-solid--text" href="mailto:{{settings.email}}">{{settings.email}}</a> и звонки на номер <a class="link-solid link-solid--text" href="tel:{{ settings.tel | replace(' ', '') | replace('-', '') }}">{{settings.tel}}</a> принимает Валерия, менеджер студии. Она ведёт проекты студии от заявки до запуска готового продукта.</p>
         <ol class="section-steps__list">
             <li class="section-steps__step">
                 <p class="section-steps__text">Изучаем заявку</p>
@@ -124,17 +124,17 @@ title: Цены Студии Евгения Лепёхина
         </ol>
     </section>
     <section class="section section-order">
-        <h2 class="section__heading">Заказать дизайн</h2>
+        <h2 class="section__heading section__heading--order">Заказать дизайн</h2>
         <div class="section-order__lead">
             <p class="section-order__lead--top">Чтобы обсудить новый проект: логотип, лендинг, название, айдентику или всё вместе — заполните форму.</p>
             <p class="section-order__lead--bottom">После отправки, вам на почту придёт шпаргалка с вопросами, которые интересуют нас в первую очередь. Их будет задавать менеджер на первой встрече. Вопросы помогут вам подготовиться и не тратить лишнее время на созвоне.</p>
         </div>
-        <form name="studio-order" class="section-order__form" method="POST" netlify>
-            <p><input type="text" name="name" id="name" class="section-order__field" placeholder="Имя"><label for="name" class="section-order__label">Имя</label></p>
-            <p><input type="tel" name="tel" id="tel" class="section-order__field" placeholder="Телефон"><label for="tel" class="section-order__label">Телефон</label></p>
-            <p><input type="text" name="organization" id="organization" class="section-order__field" autocomplete="organization" placeholder="Название компании"><label for="organization" class="section-order__label">Название компании</label></p>
-            <p><input type="email" name="email" id="email" class="section-order__field" placeholder="Электронная почта" required><label for="email" class="section-order__label">Электронная почта</label></p>
-            <p><textarea class="section-order__field" name="about" id="about" rows="5" placeholder="Несколько слов о проекте"></textarea><label for="about" class="section-order__label">Несколько слов о проекте</label></p>
+        <form class="section-order__form" name="studio-order" method="POST" netlify>
+            <p class="section-order__row"><input type="text" name="name" id="name" class="section-order__field" placeholder="Имя"><label for="name" class="section-order__label">Имя</label></p>
+            <p class="section-order__row"><input type="tel" name="tel" id="tel" class="section-order__field" placeholder="Телефон"><label for="tel" class="section-order__label">Телефон</label></p>
+            <p class="section-order__row"><input type="text" name="organization" id="organization" class="section-order__field" autocomplete="organization" placeholder="Название компании"><label for="organization" class="section-order__label">Название компании</label></p>
+            <p class="section-order__row"><input type="email" name="email" id="email" class="section-order__field" placeholder="Электронная почта" required><label for="email" class="section-order__label">Электронная почта</label></p>
+            <p class="section-order__row"><textarea class="section-order__field" name="about" id="about" rows="5" placeholder="Несколько слов о проекте"></textarea><label for="about" class="section-order__label">Несколько слов о проекте</label></p>
             <button class="section-order__btn">Заказать дизайн</button>
         </form>
         <div class="section-order__success" hidden>
@@ -145,42 +145,9 @@ title: Цены Студии Евгения Лепёхина
         </div>
     </section>
 </main>
+{% set js %}
+  {% include "price.js" %}
+{% endset %}
 <script>
-    let sticker = document.querySelector('.section-covid__bg'),
-        recommended = document.querySelector('.price-list__item--recommended');
-    function throttle(fn, wait) {
-        let time = Date.now();
-        return function() {
-            if ((time + wait - Date.now()) < 0) {
-                fn();
-                time = Date.now();
-            }
-        }
-    }
-    function rotateSticker() {
-        sticker.style.transform = 'rotate('+window.pageYOffset/10+'deg)';
-    }
-    function setRecommendedSeen(){
-        recommended.classList.add('price-list__item--seen');
-    }
-    function scrollCallback() {
-        if (window.matchMedia('(min-width: 48em)').matches) {
-            requestAnimationFrame(rotateSticker);
-        }
-        if (recommended.getBoundingClientRect().bottom < window.innerHeight*.8) {
-            requestAnimationFrame(setRecommendedSeen);
-        }
-    }
-    window.addEventListener('scroll', throttle(scrollCallback, 10));
-    const tel = document.getElementById('tel');
-    tel.addEventListener('input', function(e) {
-        let cleaned = e.target.value.replace(/\D/g, '');
-        if (['7','8'].indexOf(cleaned[0]) >= 0) {
-            cleaned = cleaned.substring(1);
-        }
-        let match = cleaned.match(/^(\d{3})(\d{3})(\d{2})(\d{2})$/);
-        if (match) {
-            e.target.value = ['+7 ', match[1], ' ', match[2], '-', match[3], '-', match[4]].join('');
-        }
-    });
+    {{ js | safe }}
 </script>

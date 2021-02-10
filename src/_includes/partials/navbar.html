@@ -1,19 +1,21 @@
 <header class="page-header container">
     <a class="page-header__home"{% if path != 'home' %} href="{{ '/' | url }}"{% endif %}><img class="page-header__logo" src="{{ '/static/img/lepekhin.svg' | url }}" width="90" height="35" alt="Лепёхин"></a>
-    <ul class="page-header__list">
-        <li class="page-header__item">
-            <a class="page-header__link"{% if path == 'home' %} aria-current="page"{% else %} href="{{ '/' | url }}"{% endif %}>Портфолио</a>
-        </li>
-        {% for item in navigation.items %}
+    <nav>
+        <ul class="page-header__list">
             <li class="page-header__item">
-                <a class="page-header__link"{% if item.url in page.url %} aria-current="page"{% else %} href="{{item.url}}"{% endif %}>{{item.text}}</a>
+                <a class="page-header__link"{% if path == 'home' %} aria-current="page"{% else %} href="{{ '/' | url }}"{% endif %}>Портфолио</a>
             </li>
-        {% endfor %}
-        {% if settings.email %}
-        <li class="page-header__item page-header__item--desktop page-header__item--margin"><a class="page-header__link" href="mailto:{{settings.email}}">{{settings.email}}</a></li>
-        {% endif %}
-        {% if settings.tel %}
-        <li class="page-header__item page-header__item--desktop"><a class="page-header__link" href="tel:{{ settings.tel | replace(' ', '') | replace('-', '') }}">{{settings.tel}}</a></li>
-        {% endif %}
-    </ul>
+            {% for item in navigation.items %}
+                <li class="page-header__item">
+                    <a class="page-header__link"{% if item.url in page.url %} aria-current="page"{% else %} href="{{item.url}}"{% endif %}>{{item.text}}</a>
+                </li>
+            {% endfor %}
+            {% if settings.email %}
+            <li class="page-header__item page-header__item--desktop page-header__item--margin"><a class="page-header__link" href="mailto:{{settings.email}}">{{settings.email}}</a></li>
+            {% endif %}
+            {% if settings.tel %}
+            <li class="page-header__item page-header__item--desktop"><a class="page-header__link" href="tel:{{ settings.tel | replace(' ', '') | replace('-', '') }}">{{settings.tel}}</a></li>
+            {% endif %}
+        </ul>
+    </nav>
 </header>

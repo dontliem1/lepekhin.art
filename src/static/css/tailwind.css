@@ -593,6 +593,9 @@ img {
   padding-left: 0;
   counter-reset: number;
 }
+.section-steps__link--solid  {
+  display: inline-block;
+}
 .section-steps__step {
   margin-top: 4em;
 }

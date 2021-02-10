@@ -1,4 +1,4 @@
-let sticker = document.querySelector('.section-covid__bg'),
+let sticker = document.querySelector('.section-covid--sticker__bg'),
     recommended = document.querySelector('.price-list__item--recommended');
 function throttle(fn, wait) {
     let time = Date.now();

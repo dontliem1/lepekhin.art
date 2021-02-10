@@ -5,7 +5,7 @@ layout: blog
 
 {% for post in postslist | reverse %}
     <article class="blog-article">
-        <h2 class="section__heading">
+        <h2 class="blog-article__heading">
             <a class="link--solid link--solid_text" href="{{ post.url | url }}">
                 {% if post.data.title %}
                     {{ post.data.title }}

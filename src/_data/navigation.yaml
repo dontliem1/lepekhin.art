@@ -1,7 +1,7 @@
 items:
   - text: Студия
-    url: /about
+    url: /about/
   - text: Цены
-    url: /price
+    url: /price/
   - text: Блог
-    url: /blog
+    url: /blog/

@@ -123,13 +123,13 @@ title: Цены Студии Евгения Лепёхина
             </li>
         </ol>
     </section>
-    <section class="section section-order">
+    <section class="section section-order section--bottom">
         <h2 class="section__heading section__heading--order">Заказать дизайн</h2>
         <div class="section-order__lead">
             <p class="section-order__lead_text">Чтобы обсудить новый проект: логотип, лендинг, название, айдентику или всё вместе — заполните форму.</p>
             <p class="section-order__lead_text">После отправки, вам на почту придёт шпаргалка с вопросами, которые интересуют нас в первую очередь. Их будет задавать менеджер на первой встрече. Вопросы помогут вам подготовиться и не тратить лишнее время на созвоне.</p>
         </div>
-        <form class="section-order__form" name="studio-order" method="POST" netlify>
+        <form action="{{ '/success/' | url }}" class="section-order__form" name="studio-order" method="POST" netlify>
             <p class="section-order__row section-order__row--short"><input type="text" name="name" id="name" class="section-order__field" placeholder="Имя"><label for="name" class="section-order__label">Имя</label></p>
             <p class="section-order__row section-order__row--short"><input type="tel" name="tel" id="tel" class="section-order__field" placeholder="Телефон"><label for="tel" class="section-order__label">Телефон</label></p>
             <p class="section-order__row"><input type="text" name="organization" id="organization" class="section-order__field" autocomplete="organization" placeholder="Название компании"><label for="organization" class="section-order__label">Название компании</label></p>
@@ -137,12 +137,6 @@ title: Цены Студии Евгения Лепёхина
             <p class="section-order__row"><textarea class="section-order__field" name="about" id="about" rows="5" placeholder="Несколько слов о проекте"></textarea><label for="about" class="section-order__label">Несколько слов о проекте</label></p>
             <button class="section-order__btn">Заказать дизайн</button>
         </form>
-        <div class="section-order__success" hidden>
-            <p>Спасибо за заявку!</p>
-            <p>Мы свяжемся с вами в течение двух дней. Если сегодня пятница — ответим в понедельник.</p>
-            <p>А ещё мы отправили вам вопросы, чтобы вы могли подготовиться к первой встрече.</p>
-            <p>П. С. Если письма нет во входящих, проверьте спам.</p>
-        </div>
     </section>
 </main>
 {% set js %}

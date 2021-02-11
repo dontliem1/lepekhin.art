@@ -226,7 +226,7 @@ img {
   }
 }
 
-/* About */
+/* Sections */
 .section--top {
   margin-top: 2em;
 }
@@ -241,6 +241,9 @@ img {
   line-height: 1.4;
   font-weight: normal;
   margin-bottom: .55em;
+}
+.section--bottom {
+  margin-bottom: 4.25em;
 }
 @media (min-width: 48em) {
   .section--top {
@@ -264,7 +267,12 @@ img {
     font-size: 240%;
     line-height: 1.25;
   }
+  .section--bottom {
+    margin-bottom: 7.5em;
+  }
 }
+
+/* About */
 .section-who {
   margin-bottom: 1.4em;
 }
@@ -338,9 +346,6 @@ img {
 .principles-manifest__item {
   margin-bottom: 1.4em;
   font-size: 93.75%;
-}
-.section-contact {
-  margin-bottom: 4.25em;
 }
 .section-contact__text {
   font-size: 93.75%;
@@ -419,9 +424,6 @@ img {
   .team__item:nth-child(n) {
     flex-basis: 33%;
     margin-bottom: 5.5em;
-  }
-  .section-contact {
-    margin-bottom: 7.5em;
   }
   .section__heading--contact {
     margin-bottom: .4em;
@@ -612,7 +614,6 @@ img {
 }
 .section-order {
   margin-top: 3em;
-  margin-bottom: 6.75em;
 }
 .section-order__lead_text:first-child {
   margin-top: 0;
@@ -927,7 +928,6 @@ img {
     flex-wrap: wrap;
     flex-direction: row-reverse;
     justify-content: space-between;
-    margin-bottom: 6em;
   }
   .section__heading--order {
     flex-basis: 100%;

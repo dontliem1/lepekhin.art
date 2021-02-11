@@ -20,8 +20,6 @@ collections:
     name: "blog"
     folder: "src/posts"
     create: true
-    editor:
-      preview: false
     fields:
       - { label: "Заголовок", name: "title", widget: "string" }
       - { label: "Описание", name: "description", widget: "string" }
@@ -36,6 +34,7 @@ collections:
         options: ["Tags", "created", "from", "config.yml"]
   - label: "Настройка"
     name: "settings"
+    sortable_fields: []
     editor:
       preview: false
     files:

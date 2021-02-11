@@ -56,9 +56,9 @@ collections:
             hint: 'Если больше одной, отображается переключатель'
             fields:
               - { label: "Подпись в переключателе", name: "label", widget: "string", hint: "Например, «Результат» или «Описание»." }
-              - label: 'Цветовая схема',
-                name: 'theme',
-                widget: 'select',
+              - label: 'Цветовая схема'
+                name: 'theme'
+                widget: 'select'
                 options:
                   - { label: "Стандартная", value: "default" }
                   - { label: "Чёрная", value: "black" }

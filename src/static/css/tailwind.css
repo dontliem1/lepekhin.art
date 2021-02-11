@@ -33,6 +33,16 @@ body {
   color: #222;
   font-family: "Xprmntl02", serif;
   scroll-behavior: smooth;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+body > .container {
+  width: 100%;
+}
+main {
+  display: block;
+  flex-grow: 1;
 }
 img {
   vertical-align: middle;

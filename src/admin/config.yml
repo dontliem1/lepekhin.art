@@ -32,7 +32,7 @@ collections:
         pattern: 'http'
     editor:
       preview: false
-    identifier_field: 'path',
+    identifier_field: 'path'
     fields:
       - { label: 'Черновик', name: 'draft', widget: 'boolean', default: true }
       - { label: "Идентификатор проекта", name: "path", widget: "string", required: false, hint: 'Будет отображаться в адресной строке браузера после https://lepekhin.art/projects/.' }

@@ -34,11 +34,9 @@ body {
   font-family: "Xprmntl02", serif;
   scroll-behavior: smooth;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-body > .container {
-  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  justify-content: center;
 }
 main {
   display: block;
@@ -65,8 +63,6 @@ img {
 .container {
   padding-left: 1.25em;
   padding-right: 1.25em;
-  margin-left: auto;
-  margin-right: auto;
   max-width: 36.5rem;
 }
 /* 768px */

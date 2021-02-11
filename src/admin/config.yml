@@ -60,7 +60,7 @@ collections:
                   label: 'Цветовая схема',
                   name: 'theme',
                   widget: 'select',
-                  options: ['Стандартная', 'Чёрная', 'Мы предприниматели']
+                  options:
                     - { label: "Стандартная", value: "default" }
                     - { label: "Чёрная", value: "black" }
                     - { label: "Мы предприниматели", value: "enter" }

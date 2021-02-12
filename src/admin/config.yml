@@ -20,7 +20,7 @@ collections:
     name: "portfolio"
     folder: "src/projects"
     create: true
-    sortable_fields: ['title']
+    sortable_fields: ["title", "position"]
     view_filters:
       - label: 'Черновики'
         field: draft
@@ -31,17 +31,16 @@ collections:
       - label: 'C кейсами'
         field: url
         pattern: 'http'
-    editor:
-      preview: false
     identifier_field: 'path'
     fields:
-      - { label: "Заголовок в портфолио", name: "title", widget: "string" }
+      - { label: "Подпись", name: "title", widget: "string" }
       - { label: 'Черновик', name: 'draft', widget: 'boolean', default: true, required: false }
       - { label: "Идентификатор проекта", name: "path", widget: "string", required: false, hint: 'Будет отображаться в адресной строке браузера после https://lepekhin.art/projects/.' }
       - { label: "Экспресс-проект", name: "express", widget: "boolean", required: false }
       - { label: "Широкая плашка", name: "wide", widget: "boolean", required: false }
       - { label: "Обложка для портфолио", name: "cover", widget: "image", media_folder: "covers", allow_multiple: false, hint: "646х990 пикселей для узких плашек, 1350х990 для широких." }
       - { label: "Ссылка на готовый проект", name: "url", widget: "string", required: false, hint: "Если установлено, из портфолио идёт переход сразу по ссылке, а не на страницу кейса." }
+      - { label: "Порядковый номер", name: "position", widget: "number" }
       - { label: "Обложка страницы кейса для соцсетей", name: "og", widget: "image", media_folder: "og", allow_multiple: false, hint: "1200x630 пикселей", required: false }
       - label: 'Внутренние страницы'
         name: 'pages'
@@ -55,15 +54,15 @@ collections:
             widget: 'list'
             hint: 'Если больше одной, отображается переключатель'
             fields:
-              - { label: "Подпись в переключателе", name: "label", widget: "string", hint: "Например, «Результат» или «Описание»." }
+              - { label: "Подпись в переключателе", name: "label", widget: "string", hint: "Например, «Результат» или «Процесс»." }
               - label: 'Цветовая схема'
                 name: 'theme'
                 widget: 'select'
-                default: ["default"]
                 options:
                   - { label: "Стандартная", value: "default" }
                   - { label: "Чёрная", value: "black" }
                   - { label: "Мы предприниматели", value: "enter" }
+                default: "default"
               - label: 'Содержимое вкладки'
                 label_singular: 'блок'
                 name: 'body_list'
@@ -82,6 +81,7 @@ collections:
                 widget: list
                 name: roles
                 fields:
+                  - { label: "Роль", name: role, widget: string }
                   - label: "Исполнители"
                     label_singular: "исполнитель"
                     name: people
@@ -99,6 +99,7 @@ collections:
         search_fields: ["title"]
         value_field: "title"
         display_fields: ["title", "cover"]
+        multiple: true
   - label: "Блог"
     label_singular: 'пост'
     description: "Студийный блог"

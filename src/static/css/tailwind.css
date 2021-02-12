@@ -129,6 +129,12 @@ img {
   background-color: #222;
   color: #fff;
 }
+@media (min-width: 25.75em) {
+    .page-header__link {
+        padding-left: .75em;
+        padding-right: .75em;
+    }
+}
 @media (min-width: 48em) {
   .page-header {
     display: flex;
@@ -215,6 +221,87 @@ img {
   font-size: 125%;
   line-height: 125%;
 }
+.projects {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -1.25em;
+}
+.projects__item {
+  margin-bottom: 2.5em;
+  margin-right: 1.25em;
+  overflow: hidden;
+  flex-basis: 11rem;
+  flex-grow: 1;
+}
+.projects__item--wide {
+  flex-basis: 23.15rem;
+  flex-grow: 2;
+}
+@media (min-width: 25.75em) {
+    @supports (grid-auto-flow: row dense) {
+        .projects {
+            display: grid;
+            margin-right: 0;
+            grid-template-columns: repeat(2, 1fr);
+            grid-column-gap: 1.25em;
+            grid-row-gap: 2.5em;
+            margin-bottom: 2.5em;
+            grid-auto-flow: row dense;
+        }
+        .projects__item {
+            margin: 0;
+        }
+        .projects__item--wide {
+            grid-column-start: span 2;
+        }
+    }
+}
+.projects__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.projects__cover {
+  width: 100%;
+  height: auto;
+  margin-bottom: .4em;
+  transition: transform .5s ease-in-out;
+  transform-origin: bottom;
+}
+.projects__title {
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(34,34,34,.25);
+  transition: border-bottom-color .2s, color .2s;
+  line-height: 1.75;
+}
+.projects__express {
+  margin-bottom: -.4em;
+  transition: fill .2s, stroke .2s;
+  width: 1.2em;
+  height: auto;
+  fill: transparent;
+  stroke: currentColor;
+}
+.projects__link:hover .projects__title {
+  color: #E92515;
+  border-bottom-color: rgba(255, 46, 78, .25);
+}
+.projects__link:hover .projects__express {
+  fill: #E92515;
+  stroke: #E92515;
+}
+.projects__link:hover .projects__express {
+  fill: #E92515;
+  stroke: #E92515;
+}
+.projects__link:hover .projects__cover {
+  transform: scale(1.015);
+}
+.projects__link[target="_blank"] .projects__title::after {
+  content: " ↗︎";
+}
 @media (min-width: 48em) {
   .home-lead {
     margin-top: 6.5em;
@@ -224,11 +311,37 @@ img {
     font-size: 200%;
     line-height: 135%;
   }
+  .projects {
+    margin-right: -1.5em;
+  }
+  .projects__item {
+    margin-right: 1.5em;
+    margin-bottom: 3em;
+  }
+  @supports (grid-auto-flow: row dense) {
+      .projects {
+          grid-column-gap: 1.5em;
+          grid-row-gap: 3em;
+          margin-right: 0;
+          margin-bottom: 3.5em;
+      }
+      .projects__item {
+          margin: 0;
+      }
+  }
 }
 @media (min-width: 82.5em) {
   .home-lead__text {
     font-size: 240%;
     line-height: 125%;
+  }
+  .projects {
+    margin-bottom: 7.5em;
+  }
+  @supports (display: grid) {
+    .projects {
+        grid-template-columns: repeat(4, 1fr);
+    }
   }
 }
 

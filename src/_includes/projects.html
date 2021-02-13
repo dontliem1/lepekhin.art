@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<main class="project">
+<main class="project section--top section--bottom">
     <div class="container">
         <span class="project-links">
             {% for page in pages %}
@@ -21,16 +21,16 @@ layout: default
             </span>
             {% if page.archive %}<p class="project-tab__archived">Проект в архиве</p>{% endif %}
             {% for tab in tabs %}
-            <article class="project-tabs__body" id="{{ tab.label | slug }}">
+            <div class="project-tabs__body" id="{{ tab.label | slug }}">
                 <dl class="project-footer">
-                    {% if page.archive %}
+                    {% if tab.font|length %}
                     <div>
                         <dt>Гарнитура</dt>
                         <dd>{{tab.font}}</dd>
                     </div>
                     {% endif %}
                 </dl>
-            </article>
+            </div>
             {% endfor %}
         </div>
     </article>

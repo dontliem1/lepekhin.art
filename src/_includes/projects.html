@@ -15,15 +15,16 @@ layout: default
         <h1 class="project-page__heading container">{{page.heading}}</h1>
         <div class="container">
             <span class="project-tabs" role="tablist">
-                {% for tab in tabs %}
+                {% for tab in page.tabs %}
                 <a class="project-tabs__tab" href="{{ tab.label | slug }}" role="tab">{{tab.label}}</a>
                 {% endfor %}
             </span>
             {% if page.archive %}<p class="project-tab__archived">Проект в архиве</p>{% endif %}
-            {% for tab in tabs %}
+            {% for tab in page.tabs %}
             <div class="project-tabs__body" id="{{ tab.label | slug }}">
                 <dl class="project-footer">
-                    {% if tab.font|length %}
+                    {% set font = tab.font %}
+                    {% if font|length %}
                     <div>
                         <dt>Гарнитура</dt>
                         <dd>{{tab.font}}</dd>

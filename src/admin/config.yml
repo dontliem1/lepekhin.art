@@ -21,6 +21,7 @@ collections:
     folder: "src/projects"
     create: true
     sortable_fields: ["title", "position"]
+    preview_path: projects/{{slug}}
     view_filters:
       - label: 'Черновики'
         field: draft

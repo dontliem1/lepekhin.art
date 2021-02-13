@@ -1,7 +1,5 @@
-{% set projects = collections.portfolio %}
-
 <ul class="projects" id="projects">
-{% for project in projects %}
+{% for project in portfolio %}
     <li class="projects__item {% if project.data.wide %}projects__item--wide{% endif %}">
         <a class="projects__link" {% if project.data.url %}href="{{project.data.url}}" target="_blank"{% else %}href="{{ project.url | url }}"{% endif %}>
             <img class="projects__cover" src="{{project.data.cover}}" alt="" loading="lazy" width="{% if project.data.wide %}560{% else %}280{% endif %}" height="430">

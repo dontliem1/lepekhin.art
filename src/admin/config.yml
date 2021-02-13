@@ -141,18 +141,6 @@ collections:
             fields:
               - { label: "Подпись", name: text, widget: string }
               - { label: URL, name: url, widget: string }
-      - label: "Список проектов"
-        name: "links"
-        file: "src/_data/quicklinks.yaml"
-        fields:
-          - label: "Карточки проектов"
-            name: links
-            widget: list
-            collapsed: false
-            fields:
-              - { label: "Заголовок", name: title, widget: string }
-              - { label: URL, name: url, widget: string }
-              - { label: "Описание", name: desc, widget: string }
       - label: "Команда"
         label_singular: "сотрудник"
         name: team

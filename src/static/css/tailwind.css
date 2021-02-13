@@ -61,8 +61,8 @@ img {
   border-bottom-color: rgba(255, 46, 78, .25);
 }
 .container {
-  padding-left: 1.25em;
-  padding-right: 1.25em;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
   max-width: 36.5rem;
 }
 /* 768px */
@@ -71,14 +71,14 @@ img {
     font-size: 1.25em;
   }
   .container {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 /* 1320px */
 @media (min-width: 82.5em) {
   .container {
-    max-width: 69em;
+    max-width: 69rem;
   }
 }
 /* 1920px */

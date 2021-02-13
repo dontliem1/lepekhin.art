@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<main class="project">
+    <div class="container">
+        <span class="project-links">
+            {% for page in pages %}
+            <a class="project__link" href="#{{ page.label | slug }}" role="tab">{{page.label}}</a>
+            {% endfor %}
+        </span>
+    </div>
+    {% for page in pages %}
+    <article class="project-page">
+        <h1 class="project-page__heading container">{{page.heading}}</h1>
+        <div class="container">
+            <span class="project-tabs" role="tablist">
+                {% for tab in tabs %}
+                <a class="project-tabs__tab" href="{{ tab.label | slug }}" role="tab">{{tab.label}}</a>
+                {% endfor %}
+            </span>
+            {% if page.archive %}<p class="project-tab__archived">Проект в архиве</p>{% endif %}
+            {% for tab in tabs %}
+            <article class="project-tabs__body" id="{{ tab.label | slug }}">
+                <dl class="project-footer">
+                    {% if page.archive %}
+                    <div>
+                        <dt>Гарнитура</dt>
+                        <dd>{{tab.font}}</dd>
+                    </div>
+                    {% endif %}
+                </dl>
+            </article>
+            {% endfor %}
+        </div>
+    </article>
+    {% endfor %}
+</main>

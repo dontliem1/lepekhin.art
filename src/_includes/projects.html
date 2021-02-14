@@ -2,16 +2,16 @@
 layout: default
 ---
 
-<main class="project section--top section--bottom">
-    <div class="container">
-        <span class="project-links">
-            {% for page in pages %}
-            <a class="project__link" href="#{{ page.label | slug }}" role="tab">{{page.label}}</a>
-            {% endfor %}
-        </span>
-    </div>
+<main class="project section--top section--bottom js-tabs">
+    <ul class="project-links js-tablist container" data-existing-hx="h1">
+        {% for page in pages %}
+        <li class="project-links__item js-tablist__item">
+            <a class="project-links__link js-tablist__link" href="#{{ page.label | slug }}">{{page.label}}</a>
+        </li>
+        {% endfor %}
+    </ul>
     {% for page in pages %}
-    <article class="project-page">
+    <article class="project-page js-tabcontent" id="{{ page.label | slug }}">
         <h1 class="project-page__heading container">{{page.heading}}</h1>
         <div class="container">
             <span class="project-tabs" role="tablist">
@@ -22,12 +22,28 @@ layout: default
             {% if page.archive %}<p class="project-tab__archived">Проект в архиве</p>{% endif %}
             {% for tab in page.tabs %}
             <div class="project-tabs__body" id="{{ tab.label | slug }}">
-                <dl class="project-footer">
-                    {% set font = tab.font %}
-                    {% if font|length %}
-                    <div>
+                <dl class="project-footer container">
+                    {% for role in tab.roles %}
+                    <div class="project-footer__item">
+                        <dt>{{role.role}}</dt>
+                        <dd>{% for person in role.people %}
+                            <span>{{person.name}}</span><br>
+                            {% endfor %}</dd>
+                    </div>
+                    {% endfor %}
+                    {% if tab.font|length %}
+                    <div class="project-footer__item project-footer__item--font">
                         <dt>Гарнитура</dt>
                         <dd>{{tab.font}}</dd>
+                    </div>
+                    {% endif %}
+                    {% if tab.date|length %}
+                    <div class="project-footer__item">
+                        <dt>Дата выпуска</dt>
+                        <dd>{{ tab.date | readableDate }}
+                            {% if tab.days|length %}
+                            <br><span class="project-footer__days">Сделано за {{tab.days}} дня</span>
+                            {% endif %}</dd>
                     </div>
                     {% endif %}
                 </dl>
@@ -37,3 +53,9 @@ layout: default
     </article>
     {% endfor %}
 </main>
+{% set js %}
+  {% include "van11y.js" %}
+{% endset %}
+<script>
+    {{ js | safe }}
+</script>

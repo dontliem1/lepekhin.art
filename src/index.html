@@ -2,7 +2,7 @@
 layout: portfolio
 path: home
 ---
-{% set portfolio = collections.portfolio %}
+{% set portfolio = collections.projects %}
 <ul class="projects" id="projects">
 {% for project in portfolio %}
     <li class="projects__item {% if project.data.wide %}projects__item--wide{% endif %}">

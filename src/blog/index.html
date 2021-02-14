@@ -6,7 +6,7 @@ layout: blog
 {% for post in postslist | reverse %}
     <article class="blog-article">
         <h2 class="blog-article__heading">
-            <a class="link--solid link--solid_text" href="{{ post.url | url }}">
+            <a class="link--solid" href="{{ post.url | url }}">
                 {% if post.data.title %}
                     {{ post.data.title }}
                 {% else %}
@@ -14,25 +14,10 @@ layout: blog
                 {% endif %}
             </a>
         </h2>
-        <p>
-            <time>
-                {{ post.date | readableDate }}
-                by
-                <a>{{ post.data.author }}</a>
-
-            </time>
-        </p>
         {% if post.data.description %}
-            <p>
-                {{ post.data.description }}
-            </p>
-        {% endif %}
-
-        <p>
-            <a class="link--solid" href="{{ post.url | url }}">
-                Читать далее →
-            </a>
+        <p class="blog-article__description">
+            {{ post.data.description }}
         </p>
-
+        {% endif %}
     </article>
 {% endfor %}

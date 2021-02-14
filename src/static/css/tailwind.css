@@ -78,7 +78,7 @@ img {
 /* 1320px */
 @media (min-width: 82.5em) {
   .container {
-    max-width: 69rem;
+    max-width: 85rem;
   }
 }
 /* 1920px */
@@ -247,7 +247,6 @@ img {
             grid-template-columns: repeat(2, 1fr);
             grid-column-gap: 1.25em;
             grid-row-gap: 2.5em;
-            margin-bottom: 2.5em;
             grid-auto-flow: row dense;
         }
         .projects__item {
@@ -323,7 +322,6 @@ img {
           grid-column-gap: 1.5em;
           grid-row-gap: 3em;
           margin-right: 0;
-          margin-bottom: 3.5em;
       }
       .projects__item {
           margin: 0;
@@ -334,9 +332,6 @@ img {
   .home-lead__text {
     font-size: 240%;
     line-height: 125%;
-  }
-  .projects {
-    margin-bottom: 7.5em;
   }
   @supports (display: grid) {
     .projects {
@@ -530,7 +525,7 @@ img {
 @media (min-width: 82.5em) {
   .section-who__lead {
     display: inline-block;
-    font-size: 175%;
+    font-size: 150%;
     line-height: 1.43;
     padding-top: 3.15em;
     padding-left: .4em;
@@ -564,7 +559,6 @@ img {
       align-self: center;
       max-width: none;
       margin-left: 10%;
-      margin-right: 10%;
     }
     .section__heading--manifest {
       margin-bottom: .5em;
@@ -828,7 +822,7 @@ img {
     font-size: 100%;
   }
   .section-covid__labels {
-    margin-top: 1.75em;
+    margin-top: 5em;
     display: block;
   }
   .section-covid__label {
@@ -840,8 +834,8 @@ img {
     display: block;
     align-items: center;
     position: absolute;
-    bottom: 5em;
-    right: 1.25em;
+    bottom: 3em;
+    right: 1em;
     color: #fff;
   }
   .section-covid--sticker__bg {
@@ -1125,7 +1119,7 @@ img {
         top: 30%;
         margin-left: 15.4em;
         margin-top: -12.8em;
-        margin-bottom: 6.75em;
+        margin-bottom: 5em;
     }
     .section-covid--sticker__label {
         display: block;
@@ -1142,8 +1136,12 @@ img {
 
 /* Blog */
 .blog-article {
-  margin-bottom: 2em;
+  margin-top: 2em;
+  max-width: 50em;
 }
 .blog-article__heading {
   font-weight: inherit;
+}
+.blog-article__description {
+  line-height: 1.5;
 }

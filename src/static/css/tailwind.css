@@ -45,6 +45,9 @@ main {
 img {
   vertical-align: middle;
 }
+.text--gray {
+  color: #999;
+}
 .link--solid {
   text-decoration: none;
   color: inherit;
@@ -466,9 +469,6 @@ img {
   max-width: 85%;
   line-height: 133%;
   margin-bottom: 1.5em;
-}
-.section-contact__label {
-    color: #999;
 }
 @media (min-width: 48em) {
   .section-who__lead {
@@ -1174,9 +1174,10 @@ img {
 .project-link__link:hover {
   color: #222;
   }
-.project-link__link[aria-current="page"] {
+.project-link__link[aria-selected="true"] {
   color: #222;
   border-bottom: 1px solid;
+  pointer-events: none;
 }
 .project-page__heading {
   font-weight: normal;
@@ -1196,21 +1197,27 @@ img {
   max-width: 26em;
   margin-left: auto;
   margin-right: auto;
+  list-style: none;
+  margin: 0;
 }
-.project-tabs__tab {
-  border-radius: .555em;
+.project-tabs__item {
   display: inline-block;
-  line-height: 1.4;
   flex-grow: 1;
+}
+.project-tabs__link {
+  border-radius: .555em;
+  display: block;
+  line-height: 1.4;
   padding-top: .222em;
   padding-bottom: .222em;
   color: inherit;
   text-decoration: none;
   transition: color .2s;
 }
-.project-tabs__tab[aria-selected=true] {
+.project-tabs__link[aria-selected="true"] {
   background-color: #fff;
   cursor: default;
+  pointer-events: none;
 }
 .project-tab__archived {
   line-height: 1.5;
@@ -1223,4 +1230,39 @@ img {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 3em;
+}
+.project-footer__item {
+  flex-basis: 11.75em;
+  margin-bottom: 1em;
+}
+.project-footer__item dt {
+  font-size: 75%;
+  margin-bottom: .5em;
+}
+.project-footer__item:not(:last-child) dt {
+  text-transform: lowercase;
+}
+.project-footer__item dd {
+  margin: 0;
+}
+.project-footer__item span {
+  display: inline-block;
+  margin-bottom: .33em;
+}
+.project-footer__days {
+  margin-top: 1.4em;
+  font-size: 75%;
+}
+
+@media (min-width: 48em) {
+  .project-page__heading {
+    font-size: 2.4em;
+    line-height: 1.25;
+    margin-bottom: .55em;
+  }
+}
+@media (min-width: 82.5em) {
+  .project-footer__item--right {
+    margin-left: auto;
+  }
 }

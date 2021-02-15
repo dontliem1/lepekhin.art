@@ -47,9 +47,9 @@ title: О Студии Евгения Лепёхина
     <section class="section section-contact section--bottom" id="contact">
         <h2 class="section__heading section__heading--contact">Связаться с нами</h2>
         <p class="section-contact__text">Мы находимся в Тюмени, но работаем с клиентами по всему миру. Созваниваемся с клиентами по Скайпу, Гугл Миту, Телеграму. Если нужна личная встреча в офисе, лучше договориться заранее.</p>
-        <p class="section-contact__text"><a class="link--solid" href="mailto:{{settings.email}}">{{settings.email}}</a> <span class="section-contact__label">— {{settings.email_label}}</span></p>
-        <p class="section-contact__text"><a class="link--solid" href="tel:{{ settings.tel | replace(' ', '') | replace('-', '') }}">{{settings.tel}}</a> <span class="section-contact__label">— {{settings.tel_label}}</span></p>
-        <p class="section-contact__text"><a class="link--solid" href="{{settings.address_url}}" target="_blank">{{settings.address}}</a> <span class="section-contact__label">— {{settings.address_label}}</span></p>
+        <p class="section-contact__text"><a class="link--solid" href="mailto:{{settings.email}}">{{settings.email}}</a> <span class="text--gray">— {{settings.email_label}}</span></p>
+        <p class="section-contact__text"><a class="link--solid" href="tel:{{ settings.tel | replace(' ', '') | replace('-', '') }}">{{settings.tel}}</a> <span class="text--gray">— {{settings.tel_label}}</span></p>
+        <p class="section-contact__text"><a class="link--solid" href="{{settings.address_url}}" target="_blank">{{settings.address}}</a> <span class="text--gray">— {{settings.address_label}}</span></p>
     </section>
 </main>
 {% set js %}

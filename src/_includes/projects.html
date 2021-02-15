@@ -18,7 +18,7 @@ layout: default
         {% if page.tabs|length > 1 %}
         <ul class="project-tabs js-tablist container" role="tablist" data-hx="h2">
             {% for tab in page.tabs %}
-            <li class="project-tabs__item js-tablist__ite">
+            <li class="project-tabs__item js-tablist__item">
                 <a class="project-tabs__link js-tablist__link" href="{{ tab.label | slug }}">{{tab.label}}</a>
             </li>
             {% endfor %}
@@ -29,7 +29,7 @@ layout: default
         <div class="project-tabs__body js-tabcontent" id="{{ tab.label | slug }}">
             {% for section in tab.body_list %}
             <div class="project-body__block project-body__block--{{section.name}}">
-            {% if section.name === 'beginning' %}
+            {% if section.type === 'beginning' %}
                 {{ section.text | markdownify }}
                 <p>
                     <a class="link--solid" href="{{ section.url | url}}">{{ section.link }}</a>

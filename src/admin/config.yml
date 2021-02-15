@@ -74,7 +74,7 @@ collections:
                     name: 'beginning'
                     widget: 'object'
                     fields:
-                      - { label: 'Вступление', name: 'text', widget: 'text' }
+                      - { label: 'Вступление', name: 'text', widget: 'markdown' }
                       - { label: 'Ссылка на готовый проект', name: 'link', widget: 'string', required: false, hint: 'Например, prize.we-enter.ru' }
                       - { label: 'Полный URL', name: 'url', widget: 'string', required: false, hint: 'Например, https://prize.we-enter.ru/' }
                       - { label: 'Подпись', name: 'label', widget: 'string', required: false, hint: 'Например, «сайт наполняется заказчиком»' }

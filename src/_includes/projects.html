@@ -2,73 +2,76 @@
 layout: default
 ---
 
-<main class="project section--top section--bottom js-tabs">
+<main class="project section--top section--bottom{% if pages|length > 1 %} js-tabs{% endif %}">
     {% if pages|length > 1 %}
     <ul class="project-links js-tablist container" data-existing-hx="h1">
         {% for page in pages %}
         <li class="project-links__item js-tablist__item">
-            <a class="project-links__link js-tablist__link" href="#{{ page.label | slug }}">{{page.label}}</a>
+            <a class="project-links__link js-tablist__link" href="#page{{loop.index}}">{{page.label}}</a>
         </li>
         {% endfor %}
     </ul>
     {% endif %}
     {% for page in pages %}
-    <article class="project-page js-tabcontent js-tabs" id="{{ page.label | slug }}">
+    {% set pageIndex = loop.index %}
+    <article class="project-page{% if pages|length > 1 %} js-tabcontent{% endif %}" id="page{{loop.index}}">
+        <div{% if page.tabs|length > 1 %} class="js-tabs"{% endif %}>
         <h1 class="project-page__heading container">{{page.heading}}</h1>
         {% if page.tabs|length > 1 %}
-        <ul class="project-tabs js-tablist container" role="tablist" data-hx="h2">
+        <ul class="project-tabs container js-tablist" data-hx="h2">
             {% for tab in page.tabs %}
             <li class="project-tabs__item js-tablist__item">
-                <a class="project-tabs__link js-tablist__link" href="{{ tab.label | slug }}">{{tab.label}}</a>
+                <a class="project-tabs__link js-tablist__link" href="#tab{{pageIndex}}{{loop.index}}">{{tab.label}}</a>
             </li>
             {% endfor %}
         </ul>
         {% endif %}
         {% if page.archive %}<p class="project-tab__archived">Проект в архиве</p>{% endif %}
         {% for tab in page.tabs %}
-        <div class="project-tabs__body js-tabcontent" id="{{ tab.label | slug }}">
+        <div class="project-tabs__body{% if page.tabs|length > 1 %} js-tabcontent{% endif %}" id="tab{{pageIndex}}{{loop.index}}">
             {% for section in tab.body_list %}
             <div class="project-body__block project-body__block--{{section.name}}">
-            {% if section.type === 'beginning' %}
-            <div class="container">
-                {{ section.text }}
-                <p>
-                    <a class="link--solid" href="{{ section.url | url}}">{{ section.link }}</a>
-                    {% if section.label|length %}
-                    <span class="color--gray">— {{section.label}}</span>
-                    {% endif %}
-                </p>
-            </div>
-            {% endif %}
+                {% if section.type === 'beginning' %}
+                <div class="container container--single">
+                    <p>{{ section.text | nl2br | safe }}</p>
+                    <p>
+                        <a class="link--solid" href="{{ section.url | url}}">{{ section.link }}</a>
+                        {% if section.label|length %}
+                        <span class="color--gray">— {{section.label}}</span>
+                        {% endif %}
+                    </p>
+                </div>
+                {% endif %}
             </div>
             {% endfor %}
+            <dl class="project-footer container">
+                {% for role in tab.roles %}
+                <div class="project-footer__item">
+                    <dt>{{role.role}}</dt>
+                    <dd>{% for person in role.people %}
+                        <span>{{person.name}}</span><br>
+                        {% endfor %}</dd>
+                </div>
+                {% endfor %}
+                {% if tab.font|length %}
+                <div class="project-footer__item project-footer__item--right">
+                    <dt>Гарнитура</dt>
+                    <dd>{{tab.font}}</dd>
+                </div>
+                {% endif %}
+                {% if not tab.date == '' %}
+                <div class="project-footer__item{% if tab.font|length === 0 %} project-footer__item--right{% endif %}">
+                    <dt>Дата выпуска</dt>
+                    <dd>{{ tab.date | readableDate }}
+                        {% if not tab.days == ''  %}
+                        <br><span class="project-footer__days">Сделано за {{tab.days}} дня</span>
+                        {% endif %}</dd>
+                </div>
+                {% endif %}
+            </dl>
         </div>
-        <dl class="project-footer container">
-            {% for role in tab.roles %}
-            <div class="project-footer__item">
-                <dt>{{role.role}}</dt>
-                <dd>{% for person in role.people %}
-                    <span>{{person.name}}</span><br>
-                    {% endfor %}</dd>
-            </div>
-            {% endfor %}
-            {% if tab.font|length %}
-            <div class="project-footer__item project-footer__item--right">
-                <dt>Гарнитура</dt>
-                <dd>{{tab.font}}</dd>
-            </div>
-            {% endif %}
-            {% if not tab.date == '' %}
-            <div class="project-footer__item{% if tab.font|length === 0 %} project-footer__item--right{% endif %}">
-                <dt>Дата выпуска</dt>
-                <dd>{{ tab.date | readableDate }}
-                    {% if not tab.days == ''  %}
-                    <br><span class="project-footer__days">Сделано за {{tab.days}} дня</span>
-                    {% endif %}</dd>
-            </div>
-            {% endif %}
-        </dl>
         {% endfor %}
+    </div>
     </article>
     {% endfor %}
 </main>

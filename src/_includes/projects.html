@@ -1,34 +1,35 @@
 ---
 layout: default
+pagination:
+  data: pages
+  size: 1
 ---
-
-<main class="project section--top section--bottom{% if pages|length > 1 %} js-tabs{% endif %}">
-    {% if pages|length > 1 %}
-    <ul class="project-links js-tablist container" data-existing-hx="h1">
-        {% for page in pages %}
-        <li class="project-links__item js-tablist__item">
-            <a class="project-links__link js-tablist__link" href="#page{{loop.index}}">{{page.label}}</a>
+{% set currentPage = pagination.items[0] %}
+<main class="project section--top section--bottom">
+    <div class="container">{# pagination.items | dump #}</div>
+    {% if pagination.hrefs|length > 1 %}
+    <ul class="project-links container" data-existing-hx="h1">
+        {% for link in pagination.hrefs %}
+        <li class="project-links__item">
+            <a class="project-links__link"{% if pagination.pageNumber === (loop.index - 1) %} aria-selected="true"{% else %} href="{{link}}"{% endif %}>{{pages[loop.index - 1].label}}</a>
         </li>
         {% endfor %}
     </ul>
     {% endif %}
-    {% for page in pages %}
-    {% set pageIndex = loop.index %}
-    <article class="project-page{% if pages|length > 1 %} js-tabcontent{% endif %}" id="page{{loop.index}}">
-        <div{% if page.tabs|length > 1 %} class="js-tabs"{% endif %}>
-        <h1 class="project-page__heading container">{{page.heading}}</h1>
-        {% if page.tabs|length > 1 %}
+    <article class="project-page{% if currentPage.tabs|length > 1 %} js-tabs{% endif %}">
+        <h1 class="project-page__heading container">{{currentPage.heading}}</h1>
+        {% if currentPage.tabs|length > 1 %}
         <ul class="project-tabs container js-tablist" data-hx="h2">
-            {% for tab in page.tabs %}
+            {% for tab in currentPage.tabs %}
             <li class="project-tabs__item js-tablist__item">
-                <a class="project-tabs__link js-tablist__link" href="#tab{{pageIndex}}{{loop.index}}">{{tab.label}}</a>
+                <a class="project-tabs__link js-tablist__link" href="#tab{{loop.index}}">{{tab.label}}</a>
             </li>
             {% endfor %}
         </ul>
         {% endif %}
-        {% if page.archive %}<p class="project-tab__archived">Проект в архиве</p>{% endif %}
-        {% for tab in page.tabs %}
-        <div class="project-tabs__body{% if page.tabs|length > 1 %} js-tabcontent{% endif %}" id="tab{{pageIndex}}{{loop.index}}">
+        {% if currentPage.archive %}<p class="project-tab__archived">Проект в архиве</p>{% endif %}
+        {% for tab in currentPage.tabs %}
+        <div class="project-tabs__body{% if currentPage.tabs|length > 1 %} js-tabcontent{% endif %}" id="tab{{loop.index}}">
             {% for section in tab.body_list %}
             <div class="project-body__block project-body__block--{{section.name}}">
                 {% if section.type === 'beginning' %}
@@ -71,8 +72,6 @@ layout: default
             </dl>
         </div>
         {% endfor %}
-    </div>
     </article>
-    {% endfor %}
 </main>
-<script src="{{ '../../static/js/van11y.js' }}"></script>
+{% if currentPage.tabs|length > 1 %}<script src="{{ '/static/js/van11y.js' | url }}"></script>{% endif %}

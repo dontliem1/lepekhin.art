@@ -15,6 +15,22 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, { zone: "utc", locale: "ru" }).toLocaleString(DateTime.DATE_FULL);
   });
 
+  // pluralize
+  eleventyConfig.addFilter("pluralize", (number, one, few, many) => {
+    if (number >= 5 && number <= 20) {
+      return number + ' ' + many;
+    } else {
+      let digit = number % 10;
+      if (digit === 1) {
+        return number + ' ' + one;
+      }
+      if (digit >= 2 && digit <= 4) {
+        return number + ' ' + few;
+      }
+    }
+    return number + ' ' + many;
+  });
+
   // A shortcode for current year
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 

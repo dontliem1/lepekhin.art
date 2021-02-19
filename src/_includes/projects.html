@@ -65,7 +65,7 @@ pagination:
                     <dt>Дата выпуска</dt>
                     <dd>{{ tab.date | readableDate }}
                         {% if not tab.days == ''  %}
-                        <br><span class="project-footer__days">Сделано за {{tab.days}} дня</span>
+                        <br><span class="project-footer__days">Сделано за {{tab.days | pluralize('день','дня','дней')}}</span>
                         {% endif %}</dd>
                 </div>
                 {% endif %}

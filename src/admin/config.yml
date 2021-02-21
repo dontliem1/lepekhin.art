@@ -22,6 +22,8 @@ collections:
     create: true
     sortable_fields: ["title", "position"]
     preview_path: projects/{{slug}}
+    editor:
+      preview: false
     view_filters:
       - label: 'Черновики'
         field: draft
@@ -36,7 +38,7 @@ collections:
     fields:
       - { label: "Подпись", name: "title", widget: "string", hint: "Отображается на карточке проекта." }
       - { label: 'Черновик', name: 'draft', widget: 'boolean', default: true, required: false }
-      - { label: "Идентификатор проекта", name: "path", widget: "string", hint: 'Будет отображаться в адресной строке браузера после https://lepekhin.art/projects/.' }
+      - { label: "ID проекта", name: "path", widget: "string", hint: 'Будет отображаться в адресной строке браузера после https://lepekhin.art/projects/.' }
       - { label: "Экспресс-проект", name: "express", widget: "boolean", required: false }
       - { label: "Широкая плашка", name: "wide", widget: "boolean", required: false }
       - { label: "Обложка для портфолио", name: "cover", widget: "image", media_folder: "covers", allow_multiple: false, hint: "646х990 пикселей для узких плашек, 1350х990 для широких." }
@@ -48,7 +50,8 @@ collections:
         widget: 'list'
         hint: 'Если больше одной, отображается переключатель'
         fields:
-          - { label: "Подпись в переключателе", name: "label", widget: "string", hint: "Например, «Сайт 1.0»." }
+          - { label: "Подпись в переключателе", name: "label", widget: "string", hint: "Например, «Сайт 2.0»." }
+          - { label: "ID верхней вкладки", name: "id", widget: "string", hint: "Будет отображаться в адресной строке браузера после https://lepekhin.art/projects/<ID проекта>/.", required: false }
           - { label: "Заголовок страницы", name: "heading", widget: "string" }
           - { label: "Проект в архиве", name: "archive", widget: "boolean", required: false }
           - label: 'Вкладки'
@@ -57,6 +60,7 @@ collections:
             hint: 'Если больше одной, отображается переключатель'
             fields:
               - { label: "Подпись в переключателе", name: "label", widget: "string", hint: "Например, «Результат» или «Процесс»." }
+              - { label: "ID внутренней вкладки", name: "id", widget: "string", hint: "Будет отображаться в адресной строке браузера после #, например https://lepekhin.art/projects/grmcap/2.0/#result", required: false }
               - label: 'Цветовая схема'
                 name: 'theme'
                 widget: 'select'
@@ -74,10 +78,30 @@ collections:
                     name: 'beginning'
                     widget: 'object'
                     fields:
-                      - { label: 'Вступление', name: 'text', widget: 'markdown' }
+                      - { label: 'Вступление', name: 'text', widget: 'text' }
                       - { label: 'Ссылка на готовый проект', name: 'link', widget: 'string', required: false, hint: 'Например, prize.we-enter.ru' }
                       - { label: 'Полный URL', name: 'url', widget: 'string', required: false, hint: 'Например, https://prize.we-enter.ru/' }
                       - { label: 'Подпись', name: 'label', widget: 'string', required: false, hint: 'Например, «сайт наполняется заказчиком»' }
+                  - label: 'Изображение на всю ширину'
+                    name: 'wide'
+                    widget: 'object'
+                    fields:
+                      - { label: "Изображение", name: "image", widget: "image", media_folder: "projects", allow_multiple: false }
+                      - { label: 'Alt-текст', name: 'alt', widget: 'string' }
+                      - { label: "Добавить отступ от края", name: "margins", widget: "boolean", required: false }
+                  - label: 'Текст'
+                    name: 'paragraph'
+                    widget: 'object'
+                    fields:
+                      - { label: 'Вступление', name: 'text', widget: 'text' }
+                  - label: 'Две анимированные картинки'
+                    name: 'columns'
+                    widget: 'object'
+                    fields:
+                      - { label: "Левое изображение", name: "image1", widget: "image", media_folder: "projects", allow_multiple: false }
+                      - { label: 'Alt-текст слева', name: 'alt1', widget: 'string' }
+                      - { label: "Правое изображение", name: "image2", widget: "image", media_folder: "projects", allow_multiple: false }
+                      - { label: 'Alt-текст справа', name: 'alt2', widget: 'string' }
               - label: "Команда проекта"
                 label_singular: "роль"
                 widget: list

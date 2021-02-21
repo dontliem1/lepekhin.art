@@ -66,7 +66,11 @@ img {
 .container {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+  width: 100%;
   max-width: 36.5rem;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* 768px */
 @media (min-width: 48em) {
@@ -81,8 +85,7 @@ img {
 /* 1320px */
 @media (min-width: 82.5em) {
   .container {
-    width: 85rem;
-    max-width: none;
+    max-width: 77.5rem;
   }
 }
 /* 1920px */
@@ -959,7 +962,7 @@ img {
     margin-bottom: 2em;
   }
   .section-order__row--short {
-      flex-basis: auto;
+      flex-basis: 13em;
   }
   .section-order__label {
       left: .5em;
@@ -1141,13 +1144,26 @@ img {
 /* Blog */
 .blog-article {
   margin-top: 2em;
-  max-width: 50rem;
 }
 .blog-article__heading {
   font-weight: inherit;
+  font-size: 1em;
 }
 .blog-article__description {
   line-height: 1.5;
+}
+@media (min-width: 48em) {
+  .blog-article__heading {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 82.5em) {
+  .blog-article__heading {
+    font-size: 2em;
+  }
+  .blog-article {
+    padding-right: 20em;
+  }
 }
 
 /* Portfolio */
@@ -1241,6 +1257,32 @@ img {
 .project-tabs__body p {
   line-height: 1.5;
 }
+.project-body__image {
+  max-width: 100%;
+  height: auto;
+}
+.project-body__image--wide {
+  width: 100%;
+}
+.project-body__image--margins {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  box-sizing: border-box;
+}
+.project-body__block--wide + .project-body__block--paragraph {
+  margin-top: 3.75em;
+}
+.project-body__columns {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 1.875em;
+  margin-bottom: 3.75em;
+}
+.project-body__columns--left {
+  margin-top: 4em;
+  margin-right: 1em;
+}
 .project-footer:not(:empty) {
   margin-top: 2em;
   display: flex;
@@ -1272,13 +1314,36 @@ img {
 
 @media (min-width: 48em) {
   .project-page__heading {
-    font-size: 2.4em;
+    font-size: 2.3em;
     line-height: 1.25;
     margin-bottom: .55em;
   }
+  .project-body__image--margins {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .project-body__columns {
+    margin-top: 2em;
+    margin-bottom: 5em;
+  }
+  .project-body__columns--left {
+    margin-right: 6em;
+  }
+  .project-body__block--wide + .project-body__block--paragraph {
+    margin-top: 5em;
+  }
 }
 @media (min-width: 82.5em) {
+  .container--single {
+    max-width: 44em;
+  }
   .project-footer__item--right {
     margin-left: auto;
+  }
+  .project-footer__item {
+    flex-basis: initial;
+  }
+  .project-footer__item:not(:last-child) {
+    padding-right: 2.4em;
   }
 }

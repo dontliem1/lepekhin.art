@@ -3,6 +3,7 @@ layout: default
 pagination:
   data: pages
   size: 1
+permalink: "projects/{{page.fileSlug}}/{% if pagination.pageNumber > 0 %}{% if pagination.items[0].id %}{{ pagination.items[0].id }}{% else %}{{ pagination.items[0].label | slug }}{% endif %}/{% endif %}"
 ---
 {% set currentPage = pagination.items[0] %}
 <main class="project section--top section--bottom">
@@ -22,16 +23,16 @@ pagination:
         <ul class="project-tabs container js-tablist" data-hx="h2">
             {% for tab in currentPage.tabs %}
             <li class="project-tabs__item js-tablist__item">
-                <a class="project-tabs__link js-tablist__link" href="#tab{{loop.index}}">{{tab.label}}</a>
+                <a class="project-tabs__link js-tablist__link" href="#{{ tab.id if (tab.id | length > 0) else (tab.label | slug) }}">{{tab.label}}</a>
             </li>
             {% endfor %}
         </ul>
         {% endif %}
         {% if currentPage.archive %}<p class="project-tab__archived">Проект в архиве</p>{% endif %}
         {% for tab in currentPage.tabs %}
-        <div class="project-tabs__body{% if currentPage.tabs|length > 1 %} js-tabcontent{% endif %}" id="tab{{loop.index}}">
+        <div class="project-tabs__body{% if currentPage.tabs|length > 1 %} js-tabcontent{% endif %}" id="{{ tab.id if (tab.id | length > 0) else (tab.label | slug) }}">
             {% for section in tab.body_list %}
-            <div class="project-body__block project-body__block--{{section.name}}">
+            <div class="project-body__block project-body__block--{{section.type}}">
                 {% if section.type === 'beginning' %}
                 <div class="container container--single">
                     <p>{{ section.text | nl2br | safe }}</p>
@@ -42,6 +43,40 @@ pagination:
                         {% endif %}
                     </p>
                 </div>
+                {% elseif section.type === 'wide' %}
+                <img class="project-body__image project-body__image--wide{% if section.margins %} project-body__image--margins{% endif %}" src="{{section.image}}" alt="{{section.alt}}" loading="lazy">
+                {% elseif section.type === 'paragraph' %}
+                <div class="container container--single">
+                    <p>{{ section.text | nl2br | safe }}</p>
+                </div>
+                {% elseif section.type === 'columns' %}
+                <div class="project-body__columns">
+                    <div class="project-body__column project-body__columns--left">
+                        <img class="project-body__image" src="{{section.image1}}" alt="{{section.alt1}}" width="384" loading="lazy">
+                    </div>
+                    <div class="project-body__column project-body__columns--right">
+                        <img class="project-body__image" src="{{section.image2}}" alt="{{section.alt2}}" width="384" loading="lazy">
+                    </div>
+                </div>
+                <script>
+                    let columns = document.getElementsByClassName("project-body__column");
+                    function throttle(fn, wait) {
+                        let time = Date.now();
+                        return function() {
+                            if ((time + wait - Date.now()) < 0) {
+                                fn();
+                                time = Date.now();
+                            }
+                        }
+                    }
+                    function moveColumns() {
+                        let vh = window.innerHeight / 25;
+                        let columnsPercent = columns[0].parentElement.getBoundingClientRect().top / vh / 2;
+                        columns[1].style.transform = "translateY(" + columnsPercent + "%)";
+                        columns[0].style.transform = "translateY(" + (-columnsPercent) + "%)";
+                    }
+                    window.addEventListener("scroll", throttle(moveColumns, 10));
+                </script>
                 {% endif %}
             </div>
             {% endfor %}

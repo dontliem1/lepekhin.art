@@ -7,7 +7,13 @@ permalink: "projects/{{page.fileSlug}}/{% if pagination.pageNumber > 0 %}{% if p
 ---
 {% set currentPage = pagination.items[0] %}
 <main class="project section--top section--bottom">
-    <div class="container">{# pagination.items | dump #}</div>
+    {% if express %}
+    <div class="express-icon">
+        <a class="express-icon__link" href="{{ '/projects/express' | url }}">
+            <svg class="express-icon__svg" viewBox="0 0 24 42" width="30" height="42" title="Экспресс-дизайн" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#999" stroke-miterlimit="8" stroke-width="1.2"><polygon points="20,2 15,18 25,20 3,40 10,22 0,20"></polygon></svg>
+        </a>
+    </div>
+    {% endif %}
     {% if pagination.hrefs|length > 1 %}
     <ul class="project-links container" data-existing-hx="h1">
         {% for link in pagination.hrefs %}
@@ -33,28 +39,23 @@ permalink: "projects/{{page.fileSlug}}/{% if pagination.pageNumber > 0 %}{% if p
         <div class="project-tabs__body{% if currentPage.tabs|length > 1 %} js-tabcontent{% endif %}" id="{{ tab.id if (tab.id | length > 0) else (tab.label | slug) }}">
             {% for section in tab.body_list %}
             <div class="project-body__block project-body__block--{{section.type}}">
-                {% if section.type === 'beginning' %}
-                <div class="container container--single">
-                    <p>{{ section.text | nl2br | safe }}</p>
-                    <p>
-                        <a class="link--solid" href="{{ section.url | url}}">{{ section.link }}</a>
-                        {% if section.label|length %}
-                        <span class="color--gray">— {{section.label}}</span>
-                        {% endif %}
-                    </p>
-                </div>
+                {% if section.type === 'paragraph' %}
+                <p class="container container--single">{{ section.text | nl2br | safe }}</p>
+                {% elseif section.type === 'link' %}
+                <p class="container container--single">
+                    <a class="link--solid" href="{{ section.url }}">{{ section.link if (section.link|length > 0) else section.url }}</a>
+                    {% if section.label|length %}
+                    <span class="color--gray">— {{section.label}}</span>
+                    {% endif %}
+                </p>
                 {% elseif section.type === 'wide' %}
                 <img class="project-body__image project-body__image--wide{% if section.margins %} project-body__image--margins{% endif %}" src="{{section.image}}" alt="{{section.alt}}" loading="lazy">
-                {% elseif section.type === 'paragraph' %}
-                <div class="container container--single">
-                    <p>{{ section.text | nl2br | safe }}</p>
-                </div>
                 {% elseif section.type === 'columns' %}
                 <div class="project-body__columns">
-                    <div class="project-body__column project-body__columns--left">
+                    <div class="project-body__column project-body__column--left">
                         <img class="project-body__image" src="{{section.image1}}" alt="{{section.alt1}}" width="384" loading="lazy">
                     </div>
-                    <div class="project-body__column project-body__columns--right">
+                    <div class="project-body__column project-body__column--right">
                         <img class="project-body__image" src="{{section.image2}}" alt="{{section.alt2}}" width="384" loading="lazy">
                     </div>
                 </div>
@@ -74,6 +75,34 @@ permalink: "projects/{{page.fileSlug}}/{% if pagination.pageNumber > 0 %}{% if p
                         let columnsPercent = columns[0].parentElement.getBoundingClientRect().top / vh / 2;
                         columns[1].style.transform = "translateY(" + columnsPercent + "%)";
                         columns[0].style.transform = "translateY(" + (-columnsPercent) + "%)";
+                    }
+                    window.addEventListener("scroll", throttle(moveColumns, 10));
+                </script>
+                {% elseif section.type === 'bgcolumns' %}
+                <div class="project-body__bgcolumns"{% if section.background | length > 0 %} style="background-color: {{section.background}};"{% endif %}>
+                    <div class="project-body__bgcolumn project-body__bgcolumn--left">
+                        <img class="project-body__image" src="{{section.image1}}" alt="{{section.alt1}}" width="600" loading="lazy">
+                    </div>
+                    <div class="project-body__bgcolumn project-body__bgcolumn--right">
+                        <img class="project-body__image" src="{{section.image2}}" alt="{{section.alt2}}" width="600" loading="lazy">
+                    </div>
+                </div>
+                <script>
+                    let bgcolumns = document.getElementsByClassName("project-body__bgcolumn");
+                    function throttle(fn, wait) {
+                        let time = Date.now();
+                        return function() {
+                            if ((time + wait - Date.now()) < 0) {
+                                fn();
+                                time = Date.now();
+                            }
+                        }
+                    }
+                    function moveColumns() {
+                        let vh = window.innerHeight / 25;
+                        let columnsPercent = bgcolumns[0].parentElement.getBoundingClientRect().top / vh / 2;
+                        bgcolumns[1].style.transform = "translateY(" + columnsPercent + "%)";
+                        bgcolumns[0].style.transform = "translateY(" + (-columnsPercent) + "%)";
                     }
                     window.addEventListener("scroll", throttle(moveColumns, 10));
                 </script>

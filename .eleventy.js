@@ -4,6 +4,14 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const htmlmin = require("html-minifier");
 
 module.exports = function (eleventyConfig) {
+  // Filter using `Array.filter`
+  eleventyConfig.addCollection("expressProjects", function(collectionApi) {
+    return collectionApi.getFilteredByTag("project").filter(function(item) {
+      // Side-step tags and do your own filtering
+      return "express" in item.data;
+    });
+  });
+
   // Disable automatic use of your .gitignore
   eleventyConfig.setUseGitIgnore(false);
 

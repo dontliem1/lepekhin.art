@@ -1198,6 +1198,21 @@ img {
   border-bottom-color: currentColor;
   pointer-events: none;
 }
+.express-icon {
+  text-align: center;
+}
+.express-icon__link {
+  color: #999;
+  transition: color .2s;
+}
+.express-icon__link:hover {
+  color: #222;
+}
+.express-icon__svg {
+  stroke: currentColor;
+  width: 1em;
+  height: auto;
+}
 .project-page[aria-hidden="true"],
 .project-tabs__body[aria-hidden="true"] {
   display: none;
@@ -1272,6 +1287,9 @@ img {
 .project-body__block--wide + .project-body__block--paragraph {
   margin-top: 3.75em;
 }
+.project-body__block--wide + .project-body__block--wide {
+  margin-top: 1.5em;
+}
 .project-body__columns {
   display: flex;
   justify-content: center;
@@ -1279,9 +1297,19 @@ img {
   margin-top: 1.875em;
   margin-bottom: 3.75em;
 }
-.project-body__columns--left {
+.project-body__column--left {
   margin-top: 4em;
   margin-right: 1em;
+}
+.project-body__bgcolumns {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 20em;
+  overflow-y: hidden;
+}
+.project-body__bgcolumn--left {
+  margin-right: .5em;
 }
 .project-footer:not(:empty) {
   margin-top: 2em;
@@ -1326,9 +1354,13 @@ img {
     margin-top: 2em;
     margin-bottom: 5em;
   }
-  .project-body__columns--left {
+  .project-body__column--left {
     margin-right: 6em;
   }
+  .project-body__bgcolumns {
+    height: 40em;
+  }
+  .project-body__block--bgcolumns + .project-body__block--paragraph,
   .project-body__block--wide + .project-body__block--paragraph {
     margin-top: 5em;
   }
@@ -1346,4 +1378,29 @@ img {
   .project-footer__item:not(:last-child) {
     padding-right: 2.4em;
   }
+}
+
+/* Themes */
+.theme--black {
+  background-color: #000;
+  color: #fff;
+}
+.theme--black .page-header__logo {
+  filter: invert(1);
+}
+.theme--black .page-header__link {
+  border-color: #fff;
+}
+.theme--black .page-header__link:hover {
+  background-color: #fff;
+  color: #222;
+}
+.theme--black .project-tabs {
+  background-color: #222;
+}
+.theme--black .project-tabs__link[aria-selected="true"] {
+  color: #000;
+}
+.theme--black .express-icon__link:hover {
+  color: #fff;
 }

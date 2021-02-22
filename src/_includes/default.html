@@ -14,7 +14,7 @@
     {% block head %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
   </head>
-  <body>
+  <body{% if theme and theme !== 'default' %} class="theme--{{theme}}"{% endif %}>
     {% include "./partials/navbar.html" %}
     {{ content | safe }}
     {% include "./partials/footer.html" %}

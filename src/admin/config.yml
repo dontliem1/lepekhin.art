@@ -45,6 +45,14 @@ collections:
       - { label: "Ссылка на готовый проект", name: "url", widget: "string", required: false, hint: "Если установлено, из портфолио идёт переход сразу по ссылке, а не на страницу кейса." }
       - { label: "Порядковый номер", name: "position", widget: "number", hint: "Для сортировки в портфолио." }
       - { label: "Обложка страницы кейса для соцсетей", name: "og", widget: "image", media_folder: "og", allow_multiple: false, hint: "1200x630 пикселей", required: false }
+      - label: 'Цветовая схема'
+        name: 'theme'
+        widget: 'select'
+        options:
+          - { label: "Стандартная", value: "default" }
+          - { label: "Чёрная", value: "black" }
+          - { label: "Мы предприниматели", value: "enter" }
+        default: "default"
       - label: 'Внутренние страницы'
         name: 'pages'
         widget: 'list'
@@ -61,26 +69,22 @@ collections:
             fields:
               - { label: "Подпись в переключателе", name: "label", widget: "string", hint: "Например, «Результат» или «Процесс»." }
               - { label: "ID внутренней вкладки", name: "id", widget: "string", hint: "Будет отображаться в адресной строке браузера после #, например https://lepekhin.art/projects/grmcap/2.0/#result", required: false }
-              - label: 'Цветовая схема'
-                name: 'theme'
-                widget: 'select'
-                options:
-                  - { label: "Стандартная", value: "default" }
-                  - { label: "Чёрная", value: "black" }
-                  - { label: "Мы предприниматели", value: "enter" }
-                default: "default"
               - label: 'Содержимое вкладки'
                 label_singular: 'блок'
                 name: 'body_list'
                 widget: 'list'
                 types:
-                  - label: 'Вcтупительная секция'
-                    name: 'beginning'
+                  - label: 'Параграф текста'
+                    name: 'paragraph'
                     widget: 'object'
                     fields:
-                      - { label: 'Вступление', name: 'text', widget: 'text' }
-                      - { label: 'Ссылка на готовый проект', name: 'link', widget: 'string', required: false, hint: 'Например, prize.we-enter.ru' }
-                      - { label: 'Полный URL', name: 'url', widget: 'string', required: false, hint: 'Например, https://prize.we-enter.ru/' }
+                      - { label: 'Текст', name: 'text', widget: 'text' }
+                  - label: 'Ссылка'
+                    name: 'link'
+                    widget: 'object'
+                    fields:
+                      - { label: 'Текст ссылки', name: 'link', widget: 'string', required: false, hint: 'Например, prize.we-enter.ru' }
+                      - { label: 'Полный URL ссылки', name: 'url', widget: 'string', hint: 'Например, https://prize.we-enter.ru/' }
                       - { label: 'Подпись', name: 'label', widget: 'string', required: false, hint: 'Например, «сайт наполняется заказчиком»' }
                   - label: 'Изображение на всю ширину'
                     name: 'wide'
@@ -89,11 +93,6 @@ collections:
                       - { label: "Изображение", name: "image", widget: "image", media_folder: "projects", allow_multiple: false }
                       - { label: 'Alt-текст', name: 'alt', widget: 'string' }
                       - { label: "Добавить отступ от края", name: "margins", widget: "boolean", required: false }
-                  - label: 'Текст'
-                    name: 'paragraph'
-                    widget: 'object'
-                    fields:
-                      - { label: 'Вступление', name: 'text', widget: 'text' }
                   - label: 'Две анимированные картинки'
                     name: 'columns'
                     widget: 'object'
@@ -102,6 +101,15 @@ collections:
                       - { label: 'Alt-текст слева', name: 'alt1', widget: 'string' }
                       - { label: "Правое изображение", name: "image2", widget: "image", media_folder: "projects", allow_multiple: false }
                       - { label: 'Alt-текст справа', name: 'alt2', widget: 'string' }
+                  - label: 'Две ограниченные анимированные картинки'
+                    name: 'bgcolumns'
+                    widget: 'object'
+                    fields:
+                      - { label: "Левое изображение", name: "image1", widget: "image", media_folder: "projects", allow_multiple: false }
+                      - { label: 'Alt-текст слева', name: 'alt1', widget: 'string' }
+                      - { label: "Правое изображение", name: "image2", widget: "image", media_folder: "projects", allow_multiple: false }
+                      - { label: 'Alt-текст справа', name: 'alt2', widget: 'string' }
+                      - { label: 'Фон блока', name: 'background', widget: 'color', allowInput: true, required: false }
               - label: "Команда проекта"
                 label_singular: "роль"
                 widget: list

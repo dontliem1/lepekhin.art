@@ -109,7 +109,7 @@ collections:
                       - { label: 'Alt-текст слева', name: 'alt1', widget: 'string' }
                       - { label: "Правое изображение", name: "image2", widget: "image", media_folder: "projects", allow_multiple: false }
                       - { label: 'Alt-текст справа', name: 'alt2', widget: 'string' }
-                      - { label: 'Фон блока', name: 'background', widget: 'color', allowInput: true, required: false }
+                      - { label: 'Фон блока', name: 'background', widget: 'color', required: false }
               - label: "Команда проекта"
                 label_singular: "роль"
                 widget: list

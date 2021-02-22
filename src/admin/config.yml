@@ -31,7 +31,7 @@ collections:
       - label: 'Экспресс'
         field: express
         pattern: true
-      - label: 'C кейсами'
+      - label: 'Без кейса'
         field: url
         pattern: 'http'
     identifier_field: 'path'
@@ -131,8 +131,8 @@ collections:
         widget: "relation"
         collection: "portfolio"
         search_fields: ["title"]
-        value_field: "title"
-        display_fields: ["title", "cover"]
+        value_field: "path"
+        display_fields: ["title"]
         multiple: true
         required: false
   - label: "Блог"

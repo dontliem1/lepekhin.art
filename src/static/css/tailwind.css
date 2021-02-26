@@ -1386,7 +1386,7 @@ img {
   color: #fff;
 }
 .theme--black .page-header__logo {
-  filter: invert(1);
+  filter: invert(1) brightness(1.5);
 }
 .theme--black .page-header__link {
   border-color: #fff;

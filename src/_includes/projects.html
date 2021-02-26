@@ -137,5 +137,24 @@ permalink: "projects/{{page.fileSlug}}/{% if pagination.pageNumber > 0 %}{% if p
         </div>
         {% endfor %}
     </article>
+    {% if suggestions %}
+    <section class="container">
+        <h2 class="section__title">Другие проекты</h2>
+        <ul class="projects">
+        {% for suggestion in suggestions %}
+        {% set recommended = collections[suggestion][0] %}
+            <li class="projects__item {% if recommended.data.wide %}projects__item--wide{% endif %}">
+                <a class="projects__link" {% if recommended.data.url | length %}href="{{recommended.data.url}}" target="_blank"{% else %}href="{{ recommended.url | url }}"{% endif %}>
+                    <img class="projects__cover" src="{{recommended.data.cover}}" alt="" loading="lazy" width="{% if recommended.data.wide %}560{% else %}280{% endif %}" height="430">
+                    <span class="projects__title">{{recommended.data.title}}</span>
+                    {% if recommended.data.express %}
+                        <svg class="projects__express" viewBox="0 0 24 42" width="23" height="27" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#222" stroke-miterlimit="8" stroke-width="2"><polygon points="20,2 15,18 25,20 3,40 10,22 0,20"></polygon></svg>
+                    {% endif %}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
 </main>
 {% if currentPage.tabs|length > 1 %}<script src="{{ '/static/js/van11y.js' | url }}"></script>{% endif %}

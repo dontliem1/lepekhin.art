@@ -1,4 +1,5 @@
 ---
+tags: ['project', 'provincials']
 title: "Логотип подкаста «Провинциалы»"
 draft: false
 path: provincials

@@ -1,4 +1,5 @@
 ---
+tags: ['project', 'grmcap']
 title: Сайт управляющей компании «Гроссмейстер Кэпитал»
 draft: false
 path: grmcap

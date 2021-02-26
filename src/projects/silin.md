@@ -1,4 +1,5 @@
 ---
+tags: ['project', 'silin']
 title: "Логотип дизайнера презентаций Дениса Силина"
 draft: false
 path: silin

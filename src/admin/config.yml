@@ -39,6 +39,7 @@ collections:
       - { label: "Подпись", name: "title", widget: "string", hint: "Отображается на карточке проекта." }
       - { label: 'Черновик', name: 'draft', widget: 'boolean', default: true, required: false }
       - { label: "ID проекта", name: "path", widget: "string", hint: 'Будет отображаться в адресной строке браузера после https://lepekhin.art/projects/.' }
+      - {label: "Теги", name: "tags", widget: "hidden", default: ["project", "{{slug}}"]}
       - { label: "Экспресс-проект", name: "express", widget: "boolean", required: false }
       - { label: "Широкая плашка", name: "wide", widget: "boolean", required: false }
       - { label: "Обложка для портфолио", name: "cover", widget: "image", media_folder: "covers", allow_multiple: false, hint: "646х990 пикселей для узких плашек, 1350х990 для широких." }

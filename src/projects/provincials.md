@@ -1,10 +1,9 @@
 ---
-tags: ['project', 'provincials']
 title: "Логотип подкаста «Провинциалы»"
 draft: false
-path: provincials
+tags: provincials
 cover: https://lepekhin.art/projects/provincials/cover-vertical.svg
-position: 2
+date: 2020-08-19
 og: https://lepekhin.art/projects/provincials/og.png
 express: true
 theme: black

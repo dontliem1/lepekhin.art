@@ -1,10 +1,9 @@
 ---
-tags: ['project', 'silin']
 title: "Логотип дизайнера презентаций Дениса Силина"
 draft: false
-path: silin
+tags: silin
 cover: https://lepekhin.art/projects/silin/cover.jpg
-position: 2
+date: 2020-02-14
 og: https://lepekhin.art/projects/silin/pattern.jpg
 express: true
 theme: black

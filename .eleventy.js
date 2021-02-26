@@ -4,10 +4,9 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const htmlmin = require("html-minifier");
 
 module.exports = function (eleventyConfig) {
-  // Filter using `Array.filter`
+  // Get express projects
   eleventyConfig.addCollection("expressProjects", function(collectionApi) {
     return collectionApi.getFilteredByTag("project").filter(function(item) {
-      // Side-step tags and do your own filtering
       return "express" in item.data;
     });
   });
@@ -17,6 +16,10 @@ module.exports = function (eleventyConfig) {
 
   // Merge data instead of overriding
   eleventyConfig.setDataDeepMerge(true);
+
+  eleventyConfig.addFilter('console', function(value) {
+    return util.inspect(value);
+});
 
   // human readable date
   eleventyConfig.addFilter("readableDate", (dateObj) => {
@@ -39,8 +42,10 @@ module.exports = function (eleventyConfig) {
     return number + ' ' + many;
   });
 
-  // A shortcode for current year
-  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+  // get current year
+  eleventyConfig.addShortcode("currentYear", () => `${new Date().getFullYear()}`);
+  // uncomment when version 1.0.0
+  // eleventyConfig.addGlobalData("currentYear", () => `${new Date().getFullYear()}`);
 
   // Syntax Highlighting for Code blocks
   eleventyConfig.addPlugin(syntaxHighlight);

@@ -20,8 +20,8 @@ collections:
     name: "portfolio"
     folder: "src/projects"
     create: true
-    sortable_fields: ["title", "position"]
-    preview_path: projects/{{slug}}
+    sortable_fields: ["date", "title"]
+    preview_path: projects/{{slug}}/
     editor:
       preview: false
     view_filters:
@@ -34,18 +34,18 @@ collections:
       - label: 'Без кейса'
         field: url
         pattern: 'http'
-    identifier_field: 'path'
+    identifier_field: 'tags'
+    summary: '{{title}}'
     fields:
       - { label: "Подпись", name: "title", widget: "string", hint: "Отображается на карточке проекта." }
       - { label: 'Черновик', name: 'draft', widget: 'boolean', default: true, required: false }
-      - { label: "ID проекта", name: "path", widget: "string", hint: 'Будет отображаться в адресной строке браузера после https://lepekhin.art/projects/.' }
-      - {label: "Теги", name: "tags", widget: "hidden", default: ["project", "{{slug}}"]}
+      - { label: "ID проекта", name: "tags", widget: "string", hint: 'Будет отображаться в адресной строке браузера после https://lepekhin.art/projects/.' }
       - { label: "Экспресс-проект", name: "express", widget: "boolean", required: false }
       - { label: "Широкая плашка", name: "wide", widget: "boolean", required: false }
       - { label: "Обложка для портфолио", name: "cover", widget: "image", media_folder: "covers", allow_multiple: false, hint: "646х990 пикселей для узких плашек, 1350х990 для широких." }
       - { label: "Ссылка на готовый проект", name: "url", widget: "string", required: false, hint: "Если установлено, из портфолио идёт переход сразу по ссылке, а не на страницу кейса." }
-      - { label: "Порядковый номер", name: "position", widget: "number", hint: "Для сортировки в портфолио." }
-      - { label: "Обложка страницы кейса для соцсетей", name: "og", widget: "image", media_folder: "og", allow_multiple: false, hint: "1200x630 пикселей", required: false }
+      - { label: "Дата публикации", name: "date", widget: "datetime", time_format: false, hint: "Для сортировки в портфолио. Нигде не отображается." }
+      - { label: "Обложка страницы кейса для соцсетей", name: "og", widget: "image", [media_folder]: "og", allow_multiple: false, hint: "1200x630 пикселей", required: false }
       - label: 'Цветовая схема'
         name: 'theme'
         widget: 'select'
@@ -58,6 +58,7 @@ collections:
         name: 'pages'
         widget: 'list'
         hint: 'Если больше одной, отображается переключатель'
+        default: [false]
         fields:
           - { label: "Подпись в переключателе", name: "label", widget: "string", hint: "Например, «Сайт 2.0»." }
           - { label: "ID верхней вкладки", name: "id", widget: "string", hint: "Будет отображаться в адресной строке браузера после https://lepekhin.art/projects/<ID проекта>/.", required: false }
@@ -133,7 +134,7 @@ collections:
         collection: "portfolio"
         search_fields: ["title"]
         value_field: "path"
-        display_fields: ["title"]
+        display_fields: ["title", "wide"]
         multiple: true
         required: false
   - label: "Блог"

@@ -15,8 +15,8 @@
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
   </head>
   <body{% if theme and theme !== 'default' %} class="theme--{{theme}}"{% endif %}>
-    {% include "./partials/navbar.html" %}
+    {% include "partials/navbar.html" %}
     {{ content | safe }}
-    {% include "./partials/footer.html" %}
+    {% include "partials/footer.html" %}
   </body>
 </html>

@@ -1,10 +1,9 @@
 ---
-tags: ['project', 'grmcap']
 title: Сайт управляющей компании «Гроссмейстер Кэпитал»
 draft: false
-path: grmcap
+tags: grmcap
 cover: https://lepekhin.art/projects/grmcap/cover.jpg
-position: 3
+date: 2021-02-22T07:31:00.741Z
 og: https://lepekhin.art/projects/grmcap/og.jpg
 theme: default
 pages:
@@ -138,4 +137,5 @@ pages:
 suggestions:
   - provincials
   - silin
+  - leoarchitect
 ---

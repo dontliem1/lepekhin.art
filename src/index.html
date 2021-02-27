@@ -2,7 +2,7 @@
 layout: portfolio
 path: home
 ---
-{% set portfolio = collections.project %}
+{% set portfolio = collections.project | reverse %}
 <ul class="projects" id="projects">
 {% for projectItem in portfolio %}
     {% include "partials/item.html" %}

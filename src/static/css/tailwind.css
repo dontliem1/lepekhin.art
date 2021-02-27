@@ -267,6 +267,7 @@ img {
   display: block;
   color: inherit;
   text-decoration: none;
+  position: relative;
 }
 .projects__cover_wrapper {
   overflow: hidden;
@@ -287,11 +288,10 @@ img {
 }
 .projects__express {
   margin-bottom: -.4em;
-  transition: fill .2s, stroke .2s;
   width: 1.2em;
   height: auto;
-  fill: transparent;
-  stroke: currentColor;
+  position: absolute;
+  top: .2em;
 }
 .projects__link:hover .projects__title {
   color: #E92515;
@@ -311,6 +311,9 @@ img {
 .projects__link[target="_blank"] .projects__title::after,
 .project-page__heading .link--solid::after {
   content: " ↗︎";
+}
+.projects--express-only .projects__express {
+  display: none;
 }
 @media (min-width: 48em) {
   .home-lead {
@@ -841,9 +844,10 @@ img {
     display: block;
     align-items: center;
     position: absolute;
-    bottom: 3em;
+    bottom: 4.5em;
     right: 1em;
     color: #fff;
+    font-size: .75em;
   }
   .section-covid--sticker__bg {
     display: block;
@@ -1130,6 +1134,7 @@ img {
         margin-left: 15.4em;
         margin-top: -12.8em;
         margin-bottom: 8em;
+        font-size: 100%;
     }
     .section-covid--sticker__label {
         display: block;

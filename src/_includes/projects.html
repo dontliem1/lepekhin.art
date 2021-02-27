@@ -24,7 +24,7 @@ permalink: "projects/{{page.fileSlug}}/{% if pagination.pageNumber > 0 %}{% if p
     </ul>
     {% endif %}
     <article class="project-page{% if currentPage.tabs|length > 1 %} js-tabs{% endif %}">
-        <h1 class="project-page__heading container">{% if url %}<a class="link--solid" href="{{url}}" target="_blank">{{title}}</a>{% else %}{{currentPage.heading}}{% endif %}</h1>
+        <h1 class="project-page__heading container">{% if url %}<a class="link--solid" href="{{url}}?utm_source=lepekhin.art&utm_medium=portfolio" target="_blank">{{title}}</a>{% else %}{{currentPage.heading}}{% endif %}</h1>
         {% if currentPage.tabs|length > 1 %}
         <ul class="project-tabs container js-tablist" data-hx="h2">
             {% for tab in currentPage.tabs %}

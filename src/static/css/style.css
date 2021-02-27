@@ -93,6 +93,9 @@ img {
   body {
     font-size: 175%;
   }
+  .container {
+    max-width: 108rem;
+  }
 }
 
 /* Header */
@@ -167,11 +170,6 @@ img {
   }
   .page-header__item--desktop {
     display: inline-block;
-  }
-}
-@media (min-width: 118em) {
-  body {
-    font-size: 175%;
   }
 }
 
@@ -351,6 +349,11 @@ img {
     .projects {
         grid-template-columns: repeat(4, 1fr);
     }
+  }
+}
+@media (min-width: 118em) {
+  .projects__cover {
+    height: 22em;
   }
 }
 

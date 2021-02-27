@@ -1,6 +1,5 @@
 ---
 title: Cайт студии архитектуры и дизайна «Лео Архитект»
-draft: false
 tags: leoarchitect
 wide: true
 cover: https://lepekhin.art/projects/leoarchitect/cover.jpg

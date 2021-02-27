@@ -1,6 +1,5 @@
 ---
 title: Лендинг бизнес-игры «Завод»
-draft: false
 tags: factory
 cover: /static/img/factory_cover.jpg
 url: https://igrazavod.ru

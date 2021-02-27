@@ -1,6 +1,5 @@
 ---
 title: "Логотип дизайнера презентаций Дениса Силина"
-draft: false
 tags: silin
 cover: https://lepekhin.art/projects/silin/cover.jpg
 date: 2020-02-14

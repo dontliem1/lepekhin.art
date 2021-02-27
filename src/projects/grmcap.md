@@ -1,6 +1,5 @@
 ---
 title: Сайт управляющей компании «Гроссмейстер Кэпитал»
-draft: false
 tags: grmcap
 cover: https://lepekhin.art/projects/grmcap/cover.jpg
 date: 2021-02-22T07:31:00.741Z

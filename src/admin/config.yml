@@ -25,9 +25,6 @@ collections:
     editor:
       preview: false
     view_filters:
-      - label: 'Черновики'
-        field: draft
-        pattern: true
       - label: 'Экспресс'
         field: express
         pattern: true
@@ -38,7 +35,6 @@ collections:
     summary: '{{title}}'
     fields:
       - { label: "Подпись", name: "title", widget: "string", hint: "Отображается на карточке проекта." }
-      - { label: 'Черновик', name: 'draft', widget: 'boolean', default: true, required: false }
       - { label: "ID проекта", name: "tags", widget: "string", hint: 'Будет отображаться в адресной строке браузера после https://lepekhin.art/projects/.' }
       - { label: "Экспресс-проект", name: "express", widget: "boolean", required: false }
       - { label: "Широкая плашка", name: "wide", widget: "boolean", required: false }

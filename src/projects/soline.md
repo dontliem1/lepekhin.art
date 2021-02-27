@@ -1,6 +1,5 @@
 ---
 title: Сайт производителя стальных бордюров «Солайн»
-draft: true
 tags: soline
 cover: /static/img/soline_cover.jpg
 url: https://www.soline72.ru

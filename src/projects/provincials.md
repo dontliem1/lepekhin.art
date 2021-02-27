@@ -1,6 +1,5 @@
 ---
 title: "Логотип подкаста «Провинциалы»"
-draft: false
 tags: provincials
 cover: https://lepekhin.art/projects/provincials/cover-vertical.svg
 date: 2020-08-19

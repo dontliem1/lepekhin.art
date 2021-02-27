@@ -10,6 +10,7 @@ media_library:
   config:
     cloud_name: lepekhin
     api_key: 824751296534575
+    multiple: false
 media_folder: "src/static/img"
 public_folder: "/static/img"
 logo_url: "https://lepekhinart.netlify.app/static/img/lepekhin.svg"

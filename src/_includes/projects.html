@@ -43,7 +43,7 @@ permalink: "projects/{{page.fileSlug}}/{% if pagination.pageNumber > 0 %}{% if p
                 <p class="container container--single">{{ section.text | nl2br | safe }}</p>
                 {% elseif section.type === 'link' %}
                 <p class="container container--single">
-                    <a class="link--solid" href="{{ section.url }}">{{ section.link if (section.link|length > 0) else section.url }}</a>
+                    <a class="link--solid" href="{{ section.url }}?utm_source=lepekhin.art&utm_medium=portfolio">{{ section.link if (section.link|length > 0) else section.url }}</a>
                     {% if section.label|length %}
                     <span class="color--gray">— {{section.label}}</span>
                     {% endif %}

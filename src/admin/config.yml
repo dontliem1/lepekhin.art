@@ -42,10 +42,10 @@ collections:
       - { label: "ID проекта", name: "tags", widget: "string", hint: 'Будет отображаться в адресной строке браузера после https://lepekhin.art/projects/.' }
       - { label: "Экспресс-проект", name: "express", widget: "boolean", required: false }
       - { label: "Широкая плашка", name: "wide", widget: "boolean", required: false }
-      - { label: "Обложка для портфолио", name: "cover", widget: "image", media_folder: "/static/img/projects/{{slug}}", allow_multiple: false, hint: "646х990 пикселей для узких плашек, 1350х990 для широких." }
+      - { label: "Обложка для портфолио", name: "cover", widget: "image", allow_multiple: false, hint: "646х990 пикселей для узких плашек, 1350х990 для широких." }
       - { label: "Ссылка на готовый проект", name: "url", widget: "string", required: false, hint: "Если установлено, из портфолио идёт переход сразу по ссылке, а не на страницу кейса." }
       - { label: "Дата публикации", name: "date", widget: "datetime", time_format: false, hint: "Для сортировки в портфолио. Нигде не отображается." }
-      - { label: "Обложка страницы кейса для соцсетей", name: "og", widget: "image", media_folder: "/static/img/projects/{{slug}}", allow_multiple: false, hint: "1200x630 пикселей", required: false }
+      - { label: "Обложка страницы кейса для соцсетей", name: "og", widget: "image", allow_multiple: false, hint: "1200x630 пикселей", required: false }
       - label: 'Цветовая схема'
         name: 'theme'
         widget: 'select'
@@ -60,7 +60,7 @@ collections:
         widget: 'list'
         hint: 'Если больше одной, отображается переключатель'
         min: 1
-        default: [{ label: "1.0", heading: "{{title}}"}]
+        default: [{ label: "1.0", heading: "Сайт"}]
         fields:
           - { label: "Подпись в переключателе", name: "label", widget: "string", hint: "Например, «Сайт 2.0».", default: '1.0' }
           - { label: "ID верхней вкладки", name: "id", widget: "string", hint: "Будет отображаться в адресной строке браузера после ID проекта, например https://lepekhin.art/projects/grmcap/2.0", required: false }
@@ -94,24 +94,24 @@ collections:
                     name: 'wide'
                     widget: 'object'
                     fields:
-                      - { label: "Изображение", name: "image", widget: "image", media_folder: "/static/img/projects/{{slug}}", allow_multiple: false }
+                      - { label: "Изображение", name: "image", widget: "image", allow_multiple: false }
                       - { label: 'Alt-текст', name: 'alt', widget: 'string' }
                       - { label: "Добавить отступ от края", name: "margins", widget: "boolean", required: false }
                   - label: 'Две анимированные картинки'
                     name: 'columns'
                     widget: 'object'
                     fields:
-                      - { label: "Левое изображение", name: "image1", widget: "image", media_folder: "/static/img/projects/{{slug}}", allow_multiple: false }
+                      - { label: "Левое изображение", name: "image1", widget: "image", allow_multiple: false }
                       - { label: 'Alt-текст слева', name: 'alt1', widget: 'string' }
-                      - { label: "Правое изображение", name: "image2", widget: "image", media_folder: "/static/img/projects/{{slug}}", allow_multiple: false }
+                      - { label: "Правое изображение", name: "image2", widget: "image", allow_multiple: false }
                       - { label: 'Alt-текст справа', name: 'alt2', widget: 'string' }
                   - label: 'Две ограниченные анимированные картинки'
                     name: 'bgcolumns'
                     widget: 'object'
                     fields:
-                      - { label: "Левое изображение", name: "image1", widget: "image", media_folder: "/static/img/projects/{{slug}}", allow_multiple: false }
+                      - { label: "Левое изображение", name: "image1", widget: "image", allow_multiple: false }
                       - { label: 'Alt-текст слева', name: 'alt1', widget: 'string' }
-                      - { label: "Правое изображение", name: "image2", widget: "image", media_folder: "/static/img/projects/{{slug}}", allow_multiple: false }
+                      - { label: "Правое изображение", name: "image2", widget: "image", allow_multiple: false }
                       - { label: 'Alt-текст справа', name: 'alt2', widget: 'string' }
                       - { label: 'Фон блока', name: 'background', widget: 'color', required: false }
               - label: "Команда проекта"
@@ -189,7 +189,7 @@ collections:
             collapsed: false
             fields:
               - { label: "Подпись", name: title, widget: string }
-              - { label: "Фото", name: img, widget: image, media_folder: "team", allow_multiple: false }
+              - { label: "Фото", name: img, widget: image, allow_multiple: false }
       - label: "Контактная информация"
         name: "settings"
         file: "src/_data/settings.yaml"

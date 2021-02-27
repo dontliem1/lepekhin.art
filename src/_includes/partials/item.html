@@ -1,5 +1,5 @@
 <li class="projects__item {% if projectItem.data.wide %}projects__item--wide{% endif %}">
-    <a class="projects__link" {% if projectItem.data.url | length %}href="{{projectItem.data.url}}" target="_blank"{% else %}href="{{ projectItem.url | url }}"{% endif %}>
+    <a class="projects__link" {% if projectItem.data.url | length %}href="{{projectItem.data.url}}?ref=lepekhin.art" target="_blank"{% else %}href="{{ projectItem.url | url }}"{% endif %}>
         <picture class="projects__cover_wrapper">
             <img class="projects__cover" src="{{projectItem.data.cover}}" alt="" loading="lazy" width="{% if projectItem.data.wide %}560{% else %}280{% endif %}" height="430">
         </picture>

@@ -20,9 +20,9 @@ pages:
 
 
               Мы разработали для «Гроссмейстер Кэпитал» сайт на трёх языках: русском, английском и немецком.
-          - type: wide
-            image: https://lepekhin.art/projects/grmcap/version1.jpg
-            margins: true
+          - type: image
+            url: https://lepekhin.art/projects/grmcap/version1.jpg
+            size: margin
             alt: Процесс создания сайта.
         font: Монсеррат
         days: 42
@@ -71,7 +71,7 @@ pages:
           - type: link
             link: grmcap.com
             url: https://grmcap.com/
-          - type: bgcolumns
+          - type: columns
             image1: https://lepekhin.art/projects/grmcap/top-left.jpg
             alt1: Страница продукта.
             image2: https://lepekhin.art/projects/grmcap/top-right.jpg
@@ -85,8 +85,9 @@ pages:
               банка-эмитента. Но там не было русской версии, описания сильных
               сторон продуктов и другой ключевой информации, которая помогла бы
               инвесторам принять решение.
-          - type: wide
-            image: https://lepekhin.art/projects/grmcap/diagonal.jpg
+          - type: image
+            size: wide
+            url: https://lepekhin.art/projects/grmcap/diagonal.jpg
             alt: Карточки продуктов.
           - type: paragraph
             text: Для заказчика было важно запустить новые страницы быстро. Поэтому
@@ -99,8 +100,9 @@ pages:
               об инвестициях важно, чтобы пользователь мог легко прочесть график
               или таблицу с первого раза, поэтому особое внимание мы уделили
               типографике и вёрстке.
-          - type: wide
-            image: https://lepekhin.art/projects/grmcap/mobile.jpg
+          - type: image
+            size: wide
+            url: https://lepekhin.art/projects/grmcap/mobile.jpg
             alt: Мобильная версия.
           - type: paragraph
             text: Мы сделали страницу сертификата за полторы недели. Время, которое осталось
@@ -112,8 +114,9 @@ pages:
             text: Мы предложили три варианта каталога, после чего выслушали пожелания
               клиента и показали финальную версию, тем самым дав ему возможность
               получить именно то, что нужно.
-          - type: wide
-            image: https://lepekhin.art/projects/grmcap/cards.jpg
+          - type: image
+            size: wide
+            url: https://lepekhin.art/projects/grmcap/cards.jpg
             alt: Карточки продуктов.
           - type: paragraph
             text: "Все страницы прекрасно смотрятся на десктопе и смартфонах. Управлять
@@ -128,9 +131,9 @@ pages:
             alt2: График.
       - label: Процесс
         body_list:
-          - type: wide
-            image: https://lepekhin.art/projects/grmcap/process.jpg
-            margins: true
+          - type: image
+            url: https://lepekhin.art/projects/grmcap/process.jpg
+            size: margin
             alt: Процесс создания сайта.
         date: 2021-02-22T07:31:00.741Z
 suggestions:

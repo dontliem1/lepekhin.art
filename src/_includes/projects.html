@@ -40,72 +40,32 @@ permalink: "projects/{{page.fileSlug}}/{% if pagination.pageNumber > 0 %}{% if p
             {% for section in tab.body_list %}
             <div class="project-body__block project-body__block--{{section.type}}">
                 {% if section.type === 'paragraph' %}
-                <p class="container container--single">{{ section.text | nl2br | safe }}</p>
+                    <p class="container container--single">{{ section.text | nl2br | safe }}</p>
                 {% elseif section.type === 'link' %}
-                <p class="container container--single">
-                    <a class="link--solid" href="{{ section.url }}?utm_source=lepekhin.art&utm_medium=portfolio">{{ section.link if (section.link|length > 0) else section.url }}</a>
-                    {% if section.label|length %}
-                    <span class="color--gray">— {{section.label}}</span>
+                    <p class="container container--single">
+                        <a class="link--solid" href="{{ section.url }}?utm_source=lepekhin.art&utm_medium=portfolio">{{ section.link if (section.link|length > 0) else section.url }}</a>
+                        {% if section.label|length %}
+                        <span class="color--gray">— {{section.label}}</span>
+                        {% endif %}
+                    </p>
+                {% elseif section.type === 'image' %}
+                    {% if section.size === 'column' %}
+                    <div class="container container--single">
                     {% endif %}
-                </p>
-                {% elseif section.type === 'wide' %}
-                <img class="project-body__image project-body__image--wide{% if section.margins %} project-body__image--margins{% endif %}" src="{{section.image}}" alt="{{section.alt}}" loading="lazy">
+                    <img class="project-body__image{% if section.size === 'wide' %} project-body__image--wide{% elseif section.size === 'margin' %} project-body__image--margins{% elseif section.size === 'half' %} project-body__image--half{% endif %}" src="{{section.url}}" alt="{{section.alt}}" loading="lazy">
+                    {% if section.size === 'column' %}
+                    </div>
+                    {% endif %}
                 {% elseif section.type === 'columns' %}
-                <div class="project-body__columns">
-                    <div class="project-body__column project-body__column--left">
-                        <img class="project-body__image" src="{{section.image1}}" alt="{{section.alt1}}" width="384" loading="lazy">
+                    {% set bg = (section.background | length > 0) %}
+                    <div class="project-body__columns{% if bg %} project-body__columns--bg{% endif %}"{% if bg %} style="background-color: {{section.background}};"{% endif %}>
+                        <div class="project-body__{% if bg %}bg{% endif %}column project-body__{% if bg %}bg{% endif %}column--left">
+                            <img class="project-body__image" src="{{section.image1}}" alt="{{section.alt1}}" width="{% if bg %}600{% else %}384{% endif %}" loading="lazy">
+                        </div>
+                        <div class="project-body__{% if bg %}bg{% endif %}column project-body__{% if bg %}bg{% endif %}column--right">
+                            <img class="project-body__image" src="{{section.image2}}" alt="{{section.alt2}}" width="{% if bg %}600{% else %}384{% endif %}" loading="lazy">
+                        </div>
                     </div>
-                    <div class="project-body__column project-body__column--right">
-                        <img class="project-body__image" src="{{section.image2}}" alt="{{section.alt2}}" width="384" loading="lazy">
-                    </div>
-                </div>
-                <script>
-                    let columns = document.getElementsByClassName("project-body__column");
-                    function throttle(fn, wait) {
-                        let time = Date.now();
-                        return function() {
-                            if ((time + wait - Date.now()) < 0) {
-                                fn();
-                                time = Date.now();
-                            }
-                        }
-                    }
-                    function moveColumns() {
-                        let vh = window.innerHeight / 25;
-                        let columnsPercent = columns[0].parentElement.getBoundingClientRect().top / vh / 2;
-                        columns[1].style.transform = "translateY(" + columnsPercent + "%)";
-                        columns[0].style.transform = "translateY(" + (-columnsPercent) + "%)";
-                    }
-                    window.addEventListener("scroll", throttle(moveColumns, 10));
-                </script>
-                {% elseif section.type === 'bgcolumns' %}
-                <div class="project-body__bgcolumns"{% if section.background | length > 0 %} style="background-color: {{section.background}};"{% endif %}>
-                    <div class="project-body__bgcolumn project-body__bgcolumn--left">
-                        <img class="project-body__image" src="{{section.image1}}" alt="{{section.alt1}}" width="600" loading="lazy">
-                    </div>
-                    <div class="project-body__bgcolumn project-body__bgcolumn--right">
-                        <img class="project-body__image" src="{{section.image2}}" alt="{{section.alt2}}" width="600" loading="lazy">
-                    </div>
-                </div>
-                <script>
-                    let bgcolumns = document.getElementsByClassName("project-body__bgcolumn");
-                    function throttle(fn, wait) {
-                        let time = Date.now();
-                        return function() {
-                            if ((time + wait - Date.now()) < 0) {
-                                fn();
-                                time = Date.now();
-                            }
-                        }
-                    }
-                    function moveColumns() {
-                        let vh = window.innerHeight / 25;
-                        let columnsPercent = bgcolumns[0].parentElement.getBoundingClientRect().top / vh / 2;
-                        bgcolumns[1].style.transform = "translateY(" + columnsPercent + "%)";
-                        bgcolumns[0].style.transform = "translateY(" + (-columnsPercent) + "%)";
-                    }
-                    window.addEventListener("scroll", throttle(moveColumns, 10));
-                </script>
                 {% endif %}
             </div>
             {% endfor %}
@@ -151,3 +111,27 @@ permalink: "projects/{{page.fileSlug}}/{% if pagination.pageNumber > 0 %}{% if p
     {% endif %}
 </main>
 {% if currentPage.tabs|length > 1 %}<script src="{{ '/static/js/van11y.js' | url }}"></script>{% endif %}
+<script>
+    let columnsWrappers = document.getElementsByClassName("project-body__columns");
+    if (columnsWrappers) {
+        function throttle(fn, wait) {
+            let time = Date.now();
+            return function() {
+                if ((time + wait - Date.now()) < 0) {
+                    fn();
+                    time = Date.now();
+                }
+            }
+        }
+        function moveColumns() {
+            let vh = window.innerHeight / 25;
+            let columnsPercent = 1;
+            for (let i = 0; i < columnsWrappers.length; i++) {
+                columnsPercent = columnsWrappers[i].getBoundingClientRect().top / vh / 2;
+                columnsWrappers[i].children[1].style.transform = "translateY(" + columnsPercent + "%)";
+                columnsWrappers[i].children[0].style.transform = "translateY(" + (-columnsPercent) + "%)";
+            }
+        }
+        window.addEventListener("scroll", throttle(moveColumns, 10));
+    }
+</script>

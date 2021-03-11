@@ -54,7 +54,6 @@ collections:
         options:
           - { label: "Стандартная", value: "default" }
           - { label: "Чёрная", value: "black" }
-          - { label: "Мы предприниматели", value: "enter" }
         default: "default"
         required: false
       - label: 'Внутренние страницы'
@@ -92,13 +91,20 @@ collections:
                       - { label: 'Текст ссылки', name: 'link', widget: 'string', required: false, hint: 'Например, prize.we-enter.ru' }
                       - { label: 'Полный URL ссылки', name: 'url', widget: 'string', hint: 'Например, https://prize.we-enter.ru/' }
                       - { label: 'Подпись', name: 'label', widget: 'string', required: false, hint: 'Например, «сайт наполняется заказчиком»' }
-                  - label: 'Изображение на всю ширину'
-                    name: 'wide'
+                  - label: 'Изображение'
+                    name: 'image'
                     widget: 'object'
                     fields:
-                      - { label: "Изображение", name: "image", widget: "image", allow_multiple: false }
+                      - { label: "Изображение", name: "url", widget: "image", allow_multiple: false }
                       - { label: 'Alt-текст', name: 'alt', widget: 'string' }
-                      - { label: "Добавить отступ от края", name: "margins", widget: "boolean", required: false }
+                      - label: "Ширина"
+                        name: "size"
+                        widget: "select"
+                        options:
+                          - { label: "На всю ширину экрана", value: "wide" }
+                          - { label: "С небольшими отступами от края", value: "margin" }
+                          - { label: "По ширине текста", value: "column" }
+                          - { label: "Узкая колонка по центру", value: "half" }
                   - label: 'Две анимированные картинки'
                     name: 'columns'
                     widget: 'object'
@@ -107,15 +113,18 @@ collections:
                       - { label: 'Alt-текст слева', name: 'alt1', widget: 'string' }
                       - { label: "Правое изображение", name: "image2", widget: "image", allow_multiple: false }
                       - { label: 'Alt-текст справа', name: 'alt2', widget: 'string' }
-                  - label: 'Две ограниченные анимированные картинки'
-                    name: 'bgcolumns'
+                      - { label: 'Фон блока', name: 'background', widget: 'color', required: false, hint: 'Если выбрать фон, блок ограничивается по высоте' }
+                  - label: 'Карусель цветов'
+                    name: 'colors'
                     widget: 'object'
                     fields:
-                      - { label: "Левое изображение", name: "image1", widget: "image", allow_multiple: false }
-                      - { label: 'Alt-текст слева', name: 'alt1', widget: 'string' }
-                      - { label: "Правое изображение", name: "image2", widget: "image", allow_multiple: false }
-                      - { label: 'Alt-текст справа', name: 'alt2', widget: 'string' }
-                      - { label: 'Фон блока', name: 'background', widget: 'color', required: false }
+                      - label: "Цвета"
+                        label_singular: "цвет"
+                        name: colors
+                        widget: list
+                        collapsed: false
+                        fields:
+                          - { label: "Подпись", name: color, widget: color }
               - label: "Команда проекта"
                 label_singular: "роль"
                 widget: list
